@@ -1227,6 +1227,65 @@ html[data-theme-id="purple-compact"] .modalOverlay{background:rgba(44,23,68,.46)
  html[data-theme-id="purple-compact"] .carManageCard{border-radius:18px!important}
 }
 </style>
+
+<style id="xcarFinalPolish">
+/* ЧЁРНЫЙ СПИСОК — настоящий полноэкранный режим */
+#blacklistModal{padding:0!important;align-items:stretch!important;justify-content:stretch!important;background:rgba(8,12,24,.72)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;}
+#blacklistModal .blacklistFullScreenCard{position:relative!important;inset:auto!important;width:100vw!important;height:100dvh!important;min-height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;border-radius:0!important;padding:clamp(14px,2vw,28px) clamp(14px,3vw,48px) calc(16px + env(safe-area-inset-bottom))!important;display:flex!important;flex-direction:column!important;overflow:hidden!important;animation:none!important;transform:none!important;}
+#blacklistModal .blacklistBody{flex:1 1 auto!important;min-height:0!important;overflow:auto!important;-webkit-overflow-scrolling:touch!important;padding:0 2px 20px!important;}
+#blacklistModal .blacklistHero{flex:0 0 auto!important;margin-top:2px!important;padding:16px 18px!important;border-radius:24px!important;box-shadow:0 10px 35px rgba(76,29,149,.10)!important;}
+#blacklistModal .blacklistSearchBox{position:sticky!important;top:0!important;z-index:20!important;padding:12px 0 14px!important;}
+#blacklistModal .blacklistResultFile{border-radius:20px!important;}
+#blacklistModal .blacklistMatch{font-size:14px!important;padding:14px 16px!important;}
+#blacklistModal .blacklistHitText{font-size:3em!important;line-height:1.05!important;padding:5px 11px!important;border-radius:12px!important;}
+#blacklistModal .modalClose{width:42px!important;height:42px!important;border-radius:14px!important;background:rgba(255,255,255,.92)!important;color:#e11d48!important;box-shadow:0 8px 24px rgba(0,0,0,.16)!important;}
+html[data-theme="dark"] #blacklistModal .modalClose{background:#211833!important;color:#fb7185!important;}
+
+/* МЕНЕДЖЕР ТЕМ — аккуратный премиальный интерфейс */
+#themeManagerModal{padding:0!important;align-items:stretch!important;justify-content:stretch!important;background:rgba(11,7,24,.70)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;}
+#themeManagerModal .themeManagerModal{width:100vw!important;max-width:none!important;height:100dvh!important;max-height:none!important;margin:0!important;border-radius:0!important;padding:0!important;overflow:hidden!important;background:#f7f5ff!important;box-shadow:none!important;display:flex!important;flex-direction:column!important;}
+#themeManagerModal .themeManagerModal>.modalClose{top:18px!important;right:18px!important;z-index:20!important;width:42px!important;height:42px!important;border-radius:14px!important;background:rgba(255,255,255,.92)!important;color:#6d28d9!important;box-shadow:0 8px 25px rgba(49,22,83,.15)!important;}
+#themeManagerModal .themeManagerHero{margin:0!important;padding:28px clamp(18px,4vw,56px) 20px!important;border:0!important;border-radius:0!important;background:linear-gradient(135deg,#5b21b6 0%,#7c3aed 42%,#c026d3 100%)!important;color:#fff!important;box-shadow:0 18px 45px rgba(91,33,182,.25)!important;min-height:150px!important;}
+#themeManagerModal .themeManagerHeroTitle{font-size:clamp(22px,3vw,34px)!important;color:#fff!important;letter-spacing:-.7px!important;}
+#themeManagerModal .themeManagerHeroSub{font-size:12px!important;color:rgba(255,255,255,.78)!important;margin-top:6px!important;}
+#themeManagerModal .themeManagerCurrent{background:rgba(255,255,255,.18)!important;border:1px solid rgba(255,255,255,.35)!important;color:#fff!important;backdrop-filter:blur(8px);}
+#themeManagerModal .themeManagerActions{padding:16px clamp(16px,4vw,56px) 8px!important;margin:0!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
+#themeManagerModal .themeManagerAction{min-height:52px!important;border:1px solid #e5ddfa!important;border-radius:16px!important;background:#fff!important;color:#4c1d95!important;box-shadow:0 8px 22px rgba(76,29,149,.08)!important;font-size:12px!important;}
+#themeManagerModal .themeManagerAction.primary{background:linear-gradient(135deg,#7c3aed,#a855f7)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 10px 26px rgba(124,58,237,.25)!important;}
+#themeManagerModal .themeManagerList{overflow:auto!important;flex:1!important;padding:8px clamp(16px,4vw,56px) 28px!important;display:grid!important;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))!important;gap:14px!important;align-content:start!important;}
+#themeManagerModal .themeManagerItem{position:relative!important;display:grid!important;grid-template-columns:64px minmax(0,1fr) auto!important;align-items:center!important;gap:13px!important;padding:14px!important;border:1px solid #e8def9!important;border-radius:22px!important;background:rgba(255,255,255,.94)!important;box-shadow:0 12px 28px rgba(54,29,89,.08)!important;min-height:98px!important;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease!important;}
+#themeManagerModal .themeManagerItem:hover{transform:translateY(-2px)!important;box-shadow:0 18px 34px rgba(54,29,89,.13)!important;border-color:#c4b5fd!important;}
+#themeManagerModal .themeManagerSwatch{width:64px!important;height:64px!important;border-radius:19px!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 7px 18px rgba(76,29,149,.12)!important;}
+#themeManagerModal .themeManagerName{font-size:14px!important;color:#24113f!important;}
+#themeManagerModal .themeManagerDesc{font-size:10.5px!important;color:#7b6a8e!important;white-space:normal!important;line-height:1.35!important;}
+#themeManagerModal .themeManagerBadge{background:#f3e8ff!important;color:#6d28d9!important;border:1px solid #e9d5ff!important;}
+#themeManagerModal .themeManagerBadge.current{background:#dcfce7!important;color:#15803d!important;border-color:#bbf7d0!important;}
+#themeManagerModal .themeManagerSelect{min-width:88px!important;padding:10px 11px!important;border-radius:13px!important;background:#f7f3ff!important;border:1px solid #ddd0f5!important;color:#6d28d9!important;}
+#themeManagerModal .themeManagerSelect.active{background:linear-gradient(135deg,#7c3aed,#a855f7)!important;color:#fff!important;border-color:transparent!important;box-shadow:0 7px 18px rgba(124,58,237,.22)!important;}
+#themeManagerModal .themeManagerTools{grid-column:2 / -1!important;margin-top:0!important;gap:6px!important;}
+#themeManagerModal .themeManagerTool{border-radius:10px!important;background:#faf8ff!important;border-color:#e8def9!important;color:#6b5a7d!important;font-size:10px!important;}
+#themeManagerModal .themeManagerTool:hover{border-color:#c4b5fd!important;color:#6d28d9!important;}
+
+/* сама фиолетовая тема — чище, компактнее, без визуального шума */
+html[data-theme-id="purple-compact"] body{background:linear-gradient(145deg,#f7f3ff 0%,#fbf9ff 48%,#f4efff 100%)!important;}
+html[data-theme-id="purple-compact"] .card{border-radius:22px!important;box-shadow:0 10px 28px rgba(76,29,149,.08)!important;}
+html[data-theme-id="purple-compact"] .topBar{border-radius:18px!important;box-shadow:0 8px 22px rgba(124,58,237,.18)!important;}
+html[data-theme-id="purple-compact"] .carManageCard,html[data-theme-id="purple-compact"] .rentedCard,html[data-theme-id="purple-compact"] .historyItem,html[data-theme-id="purple-compact"] .noteBox,html[data-theme-id="purple-compact"] .settingsFolder{border-radius:18px!important;box-shadow:0 7px 20px rgba(76,29,149,.065)!important;}
+html[data-theme-id="purple-compact"] .themeOpt{border-radius:18px!important;background:linear-gradient(145deg,#fff,#f8f3ff)!important;border-color:#e8def9!important;box-shadow:0 8px 20px rgba(76,29,149,.07)!important;}
+html[data-theme-id="purple-compact"] .themeOpt.active{background:linear-gradient(135deg,#f3e8ff,#fce7f3)!important;border-color:#8b5cf6!important;box-shadow:0 8px 20px rgba(124,58,237,.13)!important;}
+html[data-theme-id="purple-compact"] .themeOptName{color:#3b245a!important;}
+html[data-theme-id="purple-compact"] .settingsFolderHeader{border-radius:17px!important;}
+@media(max-width:700px){
+ #themeManagerModal .themeManagerHero{padding:22px 16px 18px!important;min-height:128px!important;}
+ #themeManagerModal .themeManagerActions{grid-template-columns:1fr!important;padding:12px 14px 6px!important;}
+ #themeManagerModal .themeManagerList{grid-template-columns:1fr!important;padding:8px 14px 24px!important;}
+ #themeManagerModal .themeManagerItem{grid-template-columns:54px minmax(0,1fr)!important;}
+ #themeManagerModal .themeManagerSwatch{width:54px!important;height:54px!important;}
+ #themeManagerModal .themeManagerSelect{grid-column:1 / -1!important;width:100%!important;}
+ #themeManagerModal .themeManagerTools{grid-column:1 / -1!important;}
+}
+</style>
+
 </head>
 
 <body>
@@ -5383,7 +5442,7 @@ function highlightBlacklistSnippet(snippet,q){
  out+=`<span class="blacklistContextText">${escapeHtml(raw.slice(last))}</span>`;
  return out;
 }
-function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const out=[];for(const f of files){const text=String(f.text||'').replace(/\s+/g,' ').trim(),lower=text.toLowerCase();if(!(terms.every(x=>lower.includes(x))||lower.includes(q.toLowerCase())))continue;const needles=lower.includes(q.toLowerCase())?[q.toLowerCase()]:terms;const hits=[];for(const needle of needles){let from=0;while(needle&&from<lower.length){const idx=lower.indexOf(needle,from);if(idx<0)break;hits.push({idx,needle});from=idx+Math.max(1,needle.length);}}hits.sort((a,b)=>a.idx-b.idx);const uniq=[];for(const h of hits){if(uniq.some(x=>Math.abs(x.idx-h.idx)<Math.max(1,h.needle.length*.8)))continue;const a=Math.max(0,h.idx-120),b=Math.min(text.length,h.idx+Math.max(260,h.needle.length+180));uniq.push({snippet:text.slice(a,b),index:h.idx});}out.push({filename:f.name,matches:uniq,count:uniq.length});}return out;}
+function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const out=[];for(const f of files){const text=String(f.text||'').replace(/\s+/g,' ').trim(),lower=text.toLowerCase();if(!(terms.every(x=>lower.includes(x))||lower.includes(q.toLowerCase())))continue;const needles=lower.includes(q.toLowerCase())?[q.toLowerCase()]:terms;const hits=[];for(const needle of needles){let from=0;while(needle&&from<lower.length){const idx=lower.indexOf(needle,from);if(idx<0)break;hits.push({idx,needle});from=idx+Math.max(1,needle.length);}}hits.sort((a,b)=>a.idx-b.idx);const uniq=[];for(const h of hits){if(uniq.some(x=>Math.abs(x.idx-h.idx)<Math.max(1,h.needle.length*.8)))continue;const a=h.idx,b=Math.min(text.length,h.idx+Math.max(420,h.needle.length+260));uniq.push({snippet:text.slice(a,b),index:h.idx});}out.push({filename:f.name,matches:uniq,count:uniq.length});}return out;}
 async function refreshBlacklistMeta(){
 const base=(settings.account.serverUrl||"").trim().replace(/\/+$/,"");
 const hintEl=document.getElementById("blacklistLastUpdatedHint");
@@ -5436,11 +5495,11 @@ body:JSON.stringify({query:q})
 if(!resp.ok) throw new Error("HTTP "+resp.status);
 const data=await resp.json();
 if(!data.results||!data.results.length){const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent='🔎 Совпадений: 0';results.innerHTML=`<div class="blacklistEmpty"><div style="font-size:34px">✓</div><div style="font-size:17px;font-weight:900;margin-top:6px">Совпадений не найдено</div><div style="margin-top:5px">По всей базе нет записей по запросу «${escapeHtml(q)}»</div></div>`;vibrate(12);return;}
-const total=(data.results||[]).reduce((n,r)=>n+Number(r.count||r.matches?.length||1),0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=data.results.map(r=>{const matches=Array.isArray(r.matches)&&r.matches.length?r.matches:[{snippet:r.snippet||'',index:0}];return `<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${matches.length} ${matches.length===1?'совпадение':'совпадений'}</div></div>${matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${escapeHtml(m.snippet||'')}</div>`).join('')}</div>`;}).join('');
+const total=(data.results||[]).reduce((n,r)=>n+Number(r.count||r.matches?.length||1),0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=data.results.map(r=>{const matches=Array.isArray(r.matches)&&r.matches.length?r.matches:[{snippet:r.snippet||'',index:0}];return `<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${matches.length} ${matches.length===1?'совпадение':'совпадений'}</div></div>${matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${highlightBlacklistSnippet(m.snippet||'', q)}</div>`).join('')}</div>`;}).join('');
 vibrate([20,30,20]);
 }catch(e){
 const local=localBlacklistSearch(q);
-if(local.length){const total=local.reduce((n,r)=>n+r.count,0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=local.map(r=>`<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${r.count} ${r.count===1?'совпадение':'совпадений'}</div></div>${r.matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${escapeHtml(m.snippet)}</div>`).join('')}</div>`).join('');}else{results.innerHTML=`<div class="settingsBackupHint" style="color:#c62828;">Не удалось выполнить проверку — нет соединения с сервером</div>`;}
+if(local.length){const total=local.reduce((n,r)=>n+r.count,0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=local.map(r=>`<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${r.count} ${r.count===1?'совпадение':'совпадений'}</div></div>${r.matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${highlightBlacklistSnippet(m.snippet,q)}</div>`).join('')}</div>`).join('');}else{results.innerHTML=`<div class="settingsBackupHint" style="color:#c62828;">Не удалось выполнить проверку — нет соединения с сервером</div>`;}
 }
 }
 document.getElementById("blacklistSearchBtn").addEventListener("click",runBlacklistSearch);
