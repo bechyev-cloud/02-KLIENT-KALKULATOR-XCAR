@@ -713,6 +713,44 @@ html[data-theme="dark"] .subRequisites b{color:#e7ebf3;}
 html[data-theme="dark"] .subQrWrap canvas{background:#fff;}
 html[data-theme="dark"] .blacklistClean{background:#0f2a1c;border-color:#1f5c3c;color:#4ade80;}
 html[data-theme="dark"] .blacklistResultItem{background:#2a1414;border-color:#5c2323;color:#f87171;}
+.blacklistFullScreenCard{width:100vw!important;max-width:none!important;height:100dvh!important;max-height:none!important;margin:0!important;border-radius:0!important;padding:22px clamp(18px,3vw,44px) calc(24px + env(safe-area-inset-bottom))!important;box-sizing:border-box!important;display:flex;flex-direction:column;overflow:hidden!important;background:linear-gradient(180deg,#ffffff 0%,#f8f7ff 100%)!important;box-shadow:none!important;}
+.blacklistFullScreenCard .blacklistBody{flex:1;min-height:0;overflow:auto;padding-right:4px;}
+.blacklistHero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#f4efff,#ffffff);border:1px solid #e7ddff;margin-bottom:12px;}
+.blacklistHeroTitle{font-size:clamp(20px,2.2vw,30px);font-weight:950;color:#24113f;letter-spacing:-.5px;}
+.blacklistHeroSub{font-size:12px;color:#725b8e;margin-top:4px;}
+.blacklistSummary{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
+.blacklistStat{padding:8px 11px;border-radius:14px;background:#fff;border:1px solid #e8ddff;color:#54258a;font-weight:900;font-size:12px;}
+.blacklistSearchBox{position:sticky;top:0;z-index:3;padding:10px 0 12px;background:linear-gradient(180deg,#f8f7ff 75%,rgba(248,247,255,0));backdrop-filter:blur(10px);}
+.blacklistSearchRow{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:10px;}
+.blacklistSearchInput{height:52px!important;border-radius:17px!important;border:1px solid #d9cef1!important;background:#fff!important;font-size:16px!important;padding:0 16px!important;box-shadow:0 8px 24px rgba(83,43,126,.07);}
+.blacklistSearchButton{height:52px!important;border-radius:17px!important;background:linear-gradient(135deg,#7c3aed,#a855f7)!important;border-color:#7c3aed!important;color:#fff!important;font-size:15px!important;font-weight:900!important;box-shadow:0 10px 26px rgba(124,58,237,.25);}
+.blacklistResultFile{margin:0 0 14px;border-radius:20px;border:1px solid #e4d9f4;background:#fff;box-shadow:0 8px 24px rgba(47,22,73,.07);overflow:hidden;}
+.blacklistResultHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:linear-gradient(135deg,#fbf8ff,#f5efff);border-bottom:1px solid #eee4f8;}
+.blacklistResultFileName{font-weight:950;color:#32144f;word-break:break-word;}
+.blacklistResultCount{padding:6px 10px;border-radius:999px;background:#7c3aed;color:#fff;font-size:11px;font-weight:900;white-space:nowrap;}
+.blacklistMatch{padding:13px 16px;border-bottom:1px solid #f0eaf5;color:#4b315e;font-size:13px;line-height:1.55;}
+.blacklistMatch:last-child{border-bottom:0;}
+.blacklistMatchIndex{display:inline-flex;min-width:26px;height:26px;align-items:center;justify-content:center;border-radius:9px;background:#f0e7ff;color:#6d28d9;font-weight:950;font-size:11px;margin-right:8px;vertical-align:top;}
+.blacklistHitText{display:inline-block;font-size:39px;line-height:1.18;font-weight:950;color:#14532d;background:#dcfce7;border:1px solid #bbf7d0;border-radius:12px;padding:4px 10px;margin:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;vertical-align:middle;}
+.blacklistContextText{font-size:13px;line-height:1.55;color:#4b315e;}
+html[data-theme="dark"] .blacklistHitText{color:#bbf7d0;background:#14532d;border-color:#166534;}
+html[data-theme="dark"] .blacklistContextText{color:#ddd6fe;}
+.blacklistEmpty{padding:32px 20px;border-radius:20px;background:#fff;border:1px dashed #d8c9e8;text-align:center;color:#6b5879;}
+@media(max-width:700px){.blacklistFullScreenCard{padding:14px 12px calc(16px + env(safe-area-inset-bottom))!important}.blacklistHero{padding:12px;border-radius:18px;align-items:flex-start;flex-direction:column}.blacklistSummary{justify-content:flex-start}.blacklistSearchRow{grid-template-columns:1fr}.blacklistSearchButton{width:100%}.blacklistResultHead{align-items:flex-start;flex-direction:column}.blacklistResultCount{align-self:flex-start}}
+html[data-theme="dark"] .blacklistFullScreenCard{background:linear-gradient(180deg,#11101a 0%,#191327 100%)!important;color:#fff;}
+html[data-theme="dark"] .blacklistHero{background:linear-gradient(135deg,#211833,#17121f);border-color:#4b3670}
+html[data-theme="dark"] .blacklistHeroTitle{color:#f3e8ff;}
+html[data-theme="dark"] .blacklistHeroSub{color:#c4b5fd}
+html[data-theme="dark"] .blacklistStat{background:#211833;border-color:#4b3670;color:#ddd6fe}
+html[data-theme="dark"] .blacklistSearchBox{background:linear-gradient(180deg,#191327 75%,rgba(25,19,39,0))}
+html[data-theme="dark"] .blacklistSearchInput{background:#211833!important;border-color:#4b3670!important;color:#fff!important}
+html[data-theme="dark"] .blacklistResultFile{background:#18131f;border-color:#4b3670}
+html[data-theme="dark"] .blacklistResultHead{background:linear-gradient(135deg,#241a35,#1b1527);border-color:#4b3670}
+html[data-theme="dark"] .blacklistResultFileName{color:#f3e8ff}
+html[data-theme="dark"] .blacklistMatch{border-color:#342744;color:#ddd6fe}
+html[data-theme="dark"] .blacklistMatchIndex{background:#30204d;color:#d8b4fe}
+html[data-theme="dark"] .blacklistEmpty{background:#18131f;border-color:#4b3670;color:#c4b5fd}
+
 html[data-theme="dark"] .fleetViewSwitch{background:#141d31;}
 html[data-theme="dark"] .fleetViewOpt{color:#8b93a7;}
 html[data-theme="dark"] .fleetViewOpt.active{background:#1c2c52;color:#7aa2ff;}
@@ -1270,14 +1308,10 @@ html[data-theme-id="purple-compact"] .modalOverlay{background:rgba(44,23,68,.46)
 </div>
 
 <div class="modalOverlay" id="blacklistModal">
-<div class="modalCard">
-<button class="modalClose" id="blacklistCloseBtn">✕</button>
-<div class="modalTitle">🚫 Чёрный список</div>
-<div class="blacklistUpdatedBadge"><span class="dot"></span><span>База обновлена:</span><span class="date" id="blacklistSub">—</span></div>
-<div id="blacklistFilesSyncHint" class="settingsBackupHint" style="margin:8px 0">📚 База ещё не синхронизирована</div>
-<input id="blacklistSearchInput" placeholder="Имя или номер телефона клиента">
-<button type="button" class="b1" id="blacklistSearchBtn" style="margin-bottom:4px;">🔍 Проверить</button>
-<div id="blacklistResults" style="margin-top:12px;"></div>
+<div class="modalCard blacklistFullScreenCard">
+<button class="modalClose" id="blacklistCloseBtn" style="position:absolute;right:18px;top:16px;z-index:5">✕</button>
+<div class="blacklistHero"><div><div class="blacklistHeroTitle">🚫 Чёрный список</div><div class="blacklistHeroSub">Проверка по всей загруженной базе TXT / HTML</div></div><div class="blacklistSummary"><span class="blacklistStat" id="blacklistDbDate">📅 Обновлено: —</span><span class="blacklistStat" id="blacklistFileCount">📚 Файлов: 0</span><span class="blacklistStat" id="blacklistMatchCount">🔎 Совпадений: 0</span></div></div>
+<div class="blacklistBody"><div id="blacklistFilesSyncHint" class="settingsBackupHint" style="margin:0 0 8px">📚 Синхронизация базы…</div><div class="blacklistSearchBox"><div class="blacklistSearchRow"><input id="blacklistSearchInput" class="blacklistSearchInput" placeholder="Фамилия, имя, отчество или номер телефона" autocomplete="off"><button type="button" class="b1 blacklistSearchButton" id="blacklistSearchBtn">🔍 Найти все совпадения</button></div></div><div id="blacklistResults" style="margin-top:8px;"></div></div>
 </div>
 </div>
 
@@ -5331,9 +5365,25 @@ function decodeBlacklistBase64(data){try{return decodeURIComponent(escape(atob(S
 async function syncBlacklistFiles(){
  const base=(settings.account.serverUrl||'').trim().replace(/\/+$/,''); const hint=document.getElementById('blacklistFilesSyncHint');
  if(!base){if(hint)hint.textContent='⚠️ Сервер не настроен';return;}
- try{const r=await fetch(base+'/api/public/blacklist/files',{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();const files=(d.files||[]).map(f=>({...f,text:decodeBlacklistBase64(f.data)}));localStorage.setItem('xcar_blacklist_files',JSON.stringify(files));localStorage.setItem('xcar_blacklist_sync_at',String(Date.now()));if(hint)hint.textContent=`📚 Получено файлов: ${files.length} · синхронизировано автоматически`;}catch(e){const cached=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');if(hint)hint.textContent=cached.length?`📚 Офлайн-база: ${cached.length} файлов`:'⚠️ Не удалось получить базу';}
+ try{const r=await fetch(base+'/api/public/blacklist/files',{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();const files=(d.files||[]).map(f=>({...f,text:decodeBlacklistBase64(f.data)}));localStorage.setItem('xcar_blacklist_files',JSON.stringify(files));localStorage.setItem('xcar_blacklist_sync_at',String(Date.now()));if(hint)hint.textContent=`📚 Получено файлов: ${files.length} · синхронизировано автоматически`;const fc=document.getElementById('blacklistFileCount');if(fc)fc.textContent=`📚 Файлов: ${files.length}`;}catch(e){const cached=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');if(hint)hint.textContent=cached.length?`📚 Офлайн-база: ${cached.length} файлов`:'⚠️ Не удалось получить базу';}
 }
-function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);return files.filter(f=>{const t=String(f.text||'').toLowerCase();return terms.every(x=>t.includes(x))||t.includes(q.toLowerCase())}).map(f=>({filename:f.name,snippet:String(f.text||'').replace(/\s+/g,' ').slice(0,360)}));}
+function highlightBlacklistSnippet(snippet,q){
+ const raw=String(snippet||"");
+ const terms=[String(q||""),...String(q||"").split(/\s+/).filter(Boolean)].map(x=>x.trim()).filter(Boolean).sort((a,b)=>b.length-a.length);
+ const uniq=[];for(const t of terms){if(!uniq.some(x=>x.toLowerCase()===t.toLowerCase()))uniq.push(t);}
+ if(!uniq.length)return `<span class="blacklistContextText">${escapeHtml(raw)}</span>`;
+ const re=new RegExp(uniq.map(escapeRegExp).join('|'),'gi');
+ let out='',last=0,m;
+ while((m=re.exec(raw))!==null){
+   out+=`<span class="blacklistContextText">${escapeHtml(raw.slice(last,m.index))}</span>`;
+   out+=`<span class="blacklistHitText">${escapeHtml(m[0])}</span>`;
+   last=m.index+m[0].length;
+   if(m[0].length===0)re.lastIndex++;
+ }
+ out+=`<span class="blacklistContextText">${escapeHtml(raw.slice(last))}</span>`;
+ return out;
+}
+function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const out=[];for(const f of files){const text=String(f.text||'').replace(/\s+/g,' ').trim(),lower=text.toLowerCase();if(!(terms.every(x=>lower.includes(x))||lower.includes(q.toLowerCase())))continue;const needles=lower.includes(q.toLowerCase())?[q.toLowerCase()]:terms;const hits=[];for(const needle of needles){let from=0;while(needle&&from<lower.length){const idx=lower.indexOf(needle,from);if(idx<0)break;hits.push({idx,needle});from=idx+Math.max(1,needle.length);}}hits.sort((a,b)=>a.idx-b.idx);const uniq=[];for(const h of hits){if(uniq.some(x=>Math.abs(x.idx-h.idx)<Math.max(1,h.needle.length*.8)))continue;const a=Math.max(0,h.idx-120),b=Math.min(text.length,h.idx+Math.max(260,h.needle.length+180));uniq.push({snippet:text.slice(a,b),index:h.idx});}out.push({filename:f.name,matches:uniq,count:uniq.length});}return out;}
 async function refreshBlacklistMeta(){
 const base=(settings.account.serverUrl||"").trim().replace(/\/+$/,"");
 const hintEl=document.getElementById("blacklistLastUpdatedHint");
@@ -5346,7 +5396,7 @@ const opts={day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"
 const formatted=data.lastUpdatedAt?new Date(data.lastUpdatedAt).toLocaleString("ru-RU",opts):"—";
 const text=data.lastUpdatedAt?("обновлено "+formatted):"пока пусто";
 if(hintEl) hintEl.textContent=text;
-document.getElementById("blacklistSub").textContent=formatted;
+const legacyDate=document.getElementById("blacklistSub");if(legacyDate)legacyDate.textContent=formatted;const dbDate=document.getElementById("blacklistDbDate");if(dbDate)dbDate.textContent=`📅 Обновлено: ${formatted}`;const fc=document.getElementById("blacklistFileCount");if(fc&&Number.isFinite(Number(data.count)))fc.textContent=`📚 Файлов: ${Number(data.count)}`;
 }catch(e){
 if(hintEl) hintEl.textContent="недоступно";
 }
@@ -5385,18 +5435,12 @@ body:JSON.stringify({query:q})
 });
 if(!resp.ok) throw new Error("HTTP "+resp.status);
 const data=await resp.json();
-if(!data.results||!data.results.length){
-results.innerHTML=`<div class="blacklistClean">✅ Совпадений нет — клиент не в чёрном списке</div>`;
-vibrate(12);
-return;
-}
-results.innerHTML=data.results.map(r=>
-`<div class="blacklistResultItem"><b>⚠️ Найдено в «${escapeHtml(r.filename)}»</b><br>${escapeHtml(r.snippet)}</div>`
-).join("");
+if(!data.results||!data.results.length){const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent='🔎 Совпадений: 0';results.innerHTML=`<div class="blacklistEmpty"><div style="font-size:34px">✓</div><div style="font-size:17px;font-weight:900;margin-top:6px">Совпадений не найдено</div><div style="margin-top:5px">По всей базе нет записей по запросу «${escapeHtml(q)}»</div></div>`;vibrate(12);return;}
+const total=(data.results||[]).reduce((n,r)=>n+Number(r.count||r.matches?.length||1),0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=data.results.map(r=>{const matches=Array.isArray(r.matches)&&r.matches.length?r.matches:[{snippet:r.snippet||'',index:0}];return `<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${matches.length} ${matches.length===1?'совпадение':'совпадений'}</div></div>${matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${escapeHtml(m.snippet||'')}</div>`).join('')}</div>`;}).join('');
 vibrate([20,30,20]);
 }catch(e){
 const local=localBlacklistSearch(q);
-if(local.length){results.innerHTML=local.map(r=>`<div class="blacklistResultItem"><b>⚠️ Найдено в «${escapeHtml(r.filename)}»</b><br>${escapeHtml(r.snippet)}</div>`).join('');}else{results.innerHTML=`<div class="settingsBackupHint" style="color:#c62828;">Не удалось выполнить проверку — нет соединения с сервером</div>`;}
+if(local.length){const total=local.reduce((n,r)=>n+r.count,0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=local.map(r=>`<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${r.count} ${r.count===1?'совпадение':'совпадений'}</div></div>${r.matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${escapeHtml(m.snippet)}</div>`).join('')}</div>`).join('');}else{results.innerHTML=`<div class="settingsBackupHint" style="color:#c62828;">Не удалось выполнить проверку — нет соединения с сервером</div>`;}
 }
 }
 document.getElementById("blacklistSearchBtn").addEventListener("click",runBlacklistSearch);
