@@ -258,7 +258,9 @@ clip-path:inset(0 100% 0 0);transition:clip-path 1s linear,opacity .3s ease;}
 @keyframes notifyBellRing{0%,100%{transform:rotate(0);}20%{transform:rotate(-18deg);}40%{transform:rotate(16deg);}60%{transform:rotate(-10deg);}80%{transform:rotate(6deg);}}
 .notifyBellBadge{position:absolute;top:-3px;right:-3px;min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:#ff3b30;color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px #001f5b;}
 
-.historyHandle{position:fixed;left:0;top:50%;transform:translateY(-50%);width:6px;height:64px;background:#0047ff;border-radius:0 8px 8px 0;opacity:.35;z-index:900;transition:opacity .2s ease;}
+.historyHandle{position:fixed;left:0;top:50%;transform:translateY(-50%);width:24px;height:96px;background:transparent;border-radius:0 12px 12px 0;opacity:1;z-index:1900;transition:opacity .2s ease;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.historyHandle::after{content:"";position:absolute;left:0;top:16px;width:6px;height:64px;background:#0047ff;border-radius:0 8px 8px 0;opacity:.35;transition:width .2s ease,height .2s ease,opacity .2s ease;}
+.historyHandle:hover::after{width:8px;opacity:.55;}
 .historyOverlay{display:none;position:fixed;inset:0;background:rgba(6,12,28,.55);backdrop-filter:blur(2px);z-index:998;}
 .historyOverlay.open{display:block;}
 .historyDrawer{position:fixed;top:0;left:0;bottom:0;width:95%;max-width:460px;background:#f6f8fc;z-index:999;box-shadow:16px 0 46px rgba(0,10,40,.28);border-radius:0 28px 28px 0;overflow:hidden;transform:translateX(-100%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
@@ -335,7 +337,9 @@ display:flex;justify-content:center;align-items:center;
 height:40px;background:#ffffff;border-top:1px solid #e5e5e5;font-size:11px;
 }
 
-.page2Handle{position:fixed;right:0;top:50%;transform:translateY(-50%);width:6px;height:64px;background:#6a1b9a;border-radius:8px 0 0 8px;opacity:.35;z-index:900;transition:opacity .2s ease;}
+.page2Handle{position:fixed;right:0;top:50%;transform:translateY(-50%);width:24px;height:96px;background:transparent;border-radius:12px 0 0 12px;opacity:1;z-index:1900;transition:opacity .2s ease;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;}
+.page2Handle::after{content:"";position:absolute;right:0;top:16px;width:6px;height:64px;background:#6a1b9a;border-radius:8px 0 0 8px;opacity:.35;transition:width .2s ease,height .2s ease,opacity .2s ease;}
+.page2Handle:hover::after{width:8px;opacity:.55;}
 .page2Overlay{display:none;position:fixed;inset:0;background:rgba(6,12,28,.55);backdrop-filter:blur(2px);z-index:998;}
 .page2Overlay.open{display:block;}
 .page2Drawer{position:fixed;top:0;right:0;bottom:0;width:95%;max-width:460px;background:#f6f8fc;z-index:999;box-shadow:-16px 0 46px rgba(0,10,40,.28);border-radius:28px 0 0 28px;overflow:hidden;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;}
@@ -598,6 +602,21 @@ html[data-theme="dark"] .carManageCard.stylePremium .rentSwitch{border-top-color
 .themeOptName{font-weight:800;font-size:12.5px;color:#1a1f29;}
 .themeOpt.active .themeOptName{color:#0047ff;}
 
+/* ---------- размер боковых зон открытия левого/правого окна ---------- */
+.edgeSizeRow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px;}
+.edgeSizeOpt{margin:0;padding:10px 6px;border:1.5px solid #e5e9ef;background:#fff;border-radius:14px;cursor:pointer;font-family:inherit;text-align:center;color:#2a2f36;transition:transform .16s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease;min-height:78px;}
+.edgeSizeOpt:active{transform:scale(.97);}
+.edgeSizeOpt.active{border-color:#0047ff;background:#eef4ff;box-shadow:0 5px 16px rgba(0,71,255,.10);}
+.edgeSizePreview{height:34px;position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;overflow:hidden;border-radius:9px;background:linear-gradient(135deg,#f4f7fb,#e9eef6);}
+.edgeSizePreview i{display:block;height:25px;border-radius:0 7px 7px 0;background:linear-gradient(180deg,#7650d8,#6a1b9a);}
+.edgeSizePreview i.r{border-radius:7px 0 0 7px;background:linear-gradient(180deg,#4d8fff,#0047ff);}
+.edgeSizePreview.s i{width:4px}.edgeSizePreview.m i{width:8px}.edgeSizePreview.l i{width:12px}.edgeSizePreview.xl i{width:16px}
+.edgeSizeName{font-weight:800;font-size:11.5px;line-height:1.1}.edgeSizeDesc{font-size:9.5px;color:#8a93a3;margin-top:3px;line-height:1.1}
+.edgeSizeOpt.active .edgeSizeName{color:#0047ff}
+html[data-theme="dark"] .edgeSizeOpt{background:#101d2d;border-color:#2a3b50;color:#eef4fb}
+html[data-theme="dark"] .edgeSizeOpt.active{background:#14294a;border-color:#5d8dff;box-shadow:0 5px 16px rgba(0,71,255,.18)}
+html[data-theme="dark"] .edgeSizePreview{background:#0b1522}
+
 /* ---------- подписка ---------- */
 .subscriptionCard{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:16px;cursor:pointer;background:linear-gradient(135deg,#fff8e1,#ffedb3);border:1.5px solid #ffe0a3;transition:transform .12s ease;}
 .subscriptionCard:active{transform:scale(.98);}
@@ -743,6 +762,18 @@ button,.navBtn,.modalClose{position:relative;overflow:hidden;isolation:isolate;}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.calculatorScroll>*{animation:none!important}}
 
 
+/* ===== XCAR SIDE DRAWER TOUCH TARGETS =====
+   4 visual/touch-size presets: 6px (current visual), 12px (medium), 18px (large), 24px (maximum).
+   The default is LARGE (variant 3): 18px invisible hit area while keeping the visible rail at 6px. */
+:root{--edge-touch-width:18px;--edge-touch-height:88px;--edge-visual-width:6px;}
+.historyHandle{width:var(--edge-touch-width);height:var(--edge-touch-height);}
+.historyHandle::after{width:var(--edge-visual-width);}
+.page2Handle{width:var(--edge-touch-width);height:var(--edge-touch-height);}
+.page2Handle::after{width:var(--edge-visual-width);}
+.edge-size-medium{--edge-touch-width:12px;--edge-touch-height:80px;}
+.edge-size-large{--edge-touch-width:18px;--edge-touch-height:88px;}
+.edge-size-max{--edge-touch-width:24px;--edge-touch-height:96px;}
+
 /* ===== XCAR MENU BUTTONS — FINAL HARMONIZED PANEL ===== */
 html[data-ui-style="new"] .page2HeaderBtns{
   display:flex;
@@ -873,6 +904,64 @@ html[data-theme="dark"] .xcarHubIcon.settings{background:linear-gradient(145deg,
 @media(max-width:560px){.xcarHubModal{max-width:calc(100vw - 18px)!important;padding:17px!important;border-radius:23px!important}.xcarHubHead .modalTitle{font-size:20px!important}.xcarHubRow{min-height:76px;padding:10px 12px}.xcarHubIcon{width:46px;height:46px;flex-basis:46px;border-radius:14px}.xcarHubTitle{font-size:16px}.xcarHubDesc{font-size:11px}}
 
 .xcar-sub-plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}.xcar-sub-plan{border:1px solid #dbe2ea;background:#fff;border-radius:15px;padding:12px;text-align:left;display:flex;flex-direction:column;gap:4px;cursor:pointer;transition:.18s;box-shadow:0 5px 16px rgba(0,0,0,.05)}.xcar-sub-plan.active{border-color:#087f7b;background:#eefcfb;transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.08)}.xcar-sub-plan span{font-size:17px;font-weight:900;color:#075f5d}.xcar-sub-plan small{color:#0a9a4a;font-weight:800}.xcar-sub-plan:active{transform:scale(.98)}
+
+/* Новая панель «Сервер и связь»: старые поля авторизации остаются скрытыми для совместимости с кодом. */
+#accountServerLinkBtn,#accountAuthBlock,#accountConnectedBtnRow,#accountDeleteBtn{display:none!important;}
+.connectionPanel{display:flex;flex-direction:column;gap:10px;margin:10px 0 4px;}
+.connectionRow{display:flex;align-items:center;gap:10px;padding:12px 13px;border:1px solid #e1e7f0;border-radius:16px;background:linear-gradient(180deg,#fff,#f7f9fc);box-shadow:0 4px 14px rgba(20,45,80,.05);min-height:58px;}
+.connectionRowIcon{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#eef4ff;font-size:18px;flex:0 0 auto;}
+.connectionRowInfo{min-width:0;flex:1;}
+.connectionRowTitle{font-size:13px;font-weight:850;color:#1a2740;}
+.connectionRowValue,.connectionRowSub{font-size:11px;color:#7c8799;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.connectionManualInput{width:min(46%,360px);min-width:190px;margin:0!important;padding:10px 11px!important;border-radius:11px!important;}
+.connectionSwitch{position:relative;width:54px;height:31px;flex:0 0 auto;}
+.connectionSwitch input{display:none;}
+.connectionSwitch span{position:absolute;inset:0;border-radius:99px;background:#d9dee7;transition:.25s;cursor:pointer;box-shadow:inset 0 1px 3px rgba(0,0,0,.12);}
+.connectionSwitch span:before{content:"";position:absolute;width:25px;height:25px;left:3px;top:3px;background:#fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:.25s;}
+.connectionSwitch input:checked+span{background:#16b968;}
+.connectionSwitch input:checked+span:before{transform:translateX(23px);}
+.connectionIndicator{display:flex;align-items:center;gap:6px;padding:7px 9px;border-radius:10px;font-size:10px;font-weight:800;white-space:nowrap;}
+.connectionIndicator span{width:9px;height:9px;border-radius:50%;background:#aeb7c5;box-shadow:0 0 0 4px rgba(174,183,197,.15);}
+.connectionIndicator.ok{color:#0a8f4b;background:#e9fbf1;} .connectionIndicator.ok span{background:#16b968;box-shadow:0 0 0 4px rgba(22,185,104,.14);}
+.connectionIndicator.err{color:#c62828;background:#fff0f0;} .connectionIndicator.err span{background:#e53935;box-shadow:0 0 0 4px rgba(229,57,53,.12);}
+.connectionIndicator.pending{color:#a56a00;background:#fff8e6;} .connectionIndicator.pending span{background:#f0a500;animation:serverDotPulse 1s ease-in-out infinite;}
+.connectionActions{display:flex;gap:10px;justify-content:flex-end;padding-top:2px;}
+.connectionActions button{margin-top:0!important;min-width:130px;}
+.connectionPingBtn{border:1px solid #d7e0ed;background:#fff;border-radius:11px;padding:9px 12px;font-weight:800;color:#174b83;cursor:pointer;}
+.connectionPingBtn:active{transform:scale(.97);}
+@media(max-width:700px){.connectionRow{align-items:flex-start;flex-wrap:wrap}.connectionRowInfo{min-width:calc(100% - 52px);}.connectionManualInput{width:100%;min-width:0;margin-left:48px!important;}.connectionStatusRow .connectionRowInfo{min-width:calc(100% - 52px);}.connectionIndicator{margin-left:48px}.connectionPingBtn{margin-left:auto}.connectionActions button{flex:1;min-width:0;}}
+html[data-theme="dark"] .connectionRow{background:linear-gradient(180deg,#172236,#111a2a);border-color:#293650;}
+html[data-theme="dark"] .connectionRowTitle{color:#eef3fb;}
+html[data-theme="dark"] .connectionRowValue,html[data-theme="dark"] .connectionRowSub{color:#95a0b4;}
+html[data-theme="dark"] .connectionManualInput,html[data-theme="dark"] .connectionPingBtn{background:#111a2a;color:#e7edf7;border-color:#33415d;}
+
+/* ---------- Техподдержка / чат ---------- */
+.supportModal{max-width:900px!important;width:min(96vw,900px)!important;}
+.supportChat{display:grid;grid-template-columns:240px 1fr;gap:12px;height:min(68vh,620px);min-height:420px;}
+.supportUsers{background:#f5f7fa;border:1px solid #e6eaf0;border-radius:18px;padding:8px;overflow:auto;}
+.supportUser{display:flex;align-items:center;gap:9px;width:100%;padding:11px 10px;border:0;background:transparent;border-radius:13px;text-align:left;cursor:pointer;font-family:inherit;color:#1a2030;}
+.supportUser.active{background:#e6efff;color:#0047ff;}
+.supportUserAvatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#dbe6ff;flex:0 0 auto;}
+.supportUserText{min-width:0;flex:1}.supportUserName{font-weight:800;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.supportUserSub{font-size:10px;color:#8a93a3;margin-top:2px;}
+.supportChatMain{display:flex;flex-direction:column;min-width:0;border:1px solid #e6eaf0;border-radius:18px;overflow:hidden;background:#fff;}
+.supportChatHead{padding:12px 14px;border-bottom:1px solid #edf0f4;font-weight:800;display:flex;align-items:center;gap:9px;}
+.supportMessages{flex:1;overflow:auto;padding:14px;background:linear-gradient(180deg,#f8fafc,#eef2f6);display:flex;flex-direction:column;gap:8px;}
+.supportMsg{max-width:78%;padding:9px 11px;border-radius:15px;font-size:12.5px;line-height:1.45;box-shadow:0 2px 8px rgba(15,35,55,.06);}
+.supportMsg.admin{align-self:flex-start;background:#fff;border-top-left-radius:5px;color:#202634;}
+.supportMsg.user{align-self:flex-end;background:#dff7e8;color:#114e2d;border-top-right-radius:5px;}
+.supportMsgTime{display:block;font-size:9px;opacity:.55;margin-top:3px;text-align:right;}
+.supportComposer{display:flex;gap:8px;padding:10px;border-top:1px solid #edf0f4;background:#fff;}
+.supportComposer input{flex:1;min-width:0;margin:0!important;}
+.supportSendBtn{width:46px!important;height:46px!important;border-radius:15px!important;margin:0!important;font-size:19px!important;padding:0!important;}
+html[data-theme="dark"] .supportUsers{background:#101827;border-color:#26314a;}
+html[data-theme="dark"] .supportUser{color:#e7ebf3;}
+html[data-theme="dark"] .supportUser.active{background:#1c2c52;color:#7aa2ff;}
+html[data-theme="dark"] .supportChatMain{background:#121a2b;border-color:#26314a;}
+html[data-theme="dark"] .supportChatHead,html[data-theme="dark"] .supportComposer{background:#121a2b;border-color:#26314a;color:#e7ebf3;}
+html[data-theme="dark"] .supportMessages{background:linear-gradient(180deg,#0d1424,#101827);}
+html[data-theme="dark"] .supportMsg.admin{background:#1a2338;color:#e7ebf3;}
+html[data-theme="dark"] .supportMsg.user{background:#103b29;color:#a7f3c4;}
+@media(max-width:700px){.supportChat{grid-template-columns:1fr;height:70vh;min-height:0}.supportUsers{max-height:130px;display:flex;gap:6px;overflow-x:auto;overflow-y:hidden}.supportUser{min-width:150px}.supportModal{width:98vw!important;}}
 </style>
 <style id="xcar-s25-ultra-redesign">
 /* XCAR — Samsung Galaxy S25 Ultra full-screen redesign */
@@ -999,6 +1088,9 @@ html[data-theme="dark"] .navBtn::before{background:#122033;border-color:#2a3b50;
 <button type="button" class="xcarHubRow" id="hubBlacklistBtn">
 <div class="xcarHubIcon blacklist">🚫</div><div class="xcarHubText"><div class="xcarHubTitle">Чёрный список</div><div class="xcarHubDesc">Проверка клиентов по имени или номеру</div></div><div class="xcarHubChevron">›</div>
 </button>
+<button type="button" class="xcarHubRow" id="hubSupportBtn">
+<div class="xcarHubIcon support">💬</div><div class="xcarHubText"><div class="xcarHubTitle">Техподдержка</div><div class="xcarHubDesc">Чат с поддержкой XCAR</div></div><div class="xcarHubChevron">›</div>
+</button>
 <button type="button" class="xcarHubRow" id="hubSettingsBtn">
 <div class="xcarHubIcon settings">⚙️</div><div class="xcarHubText"><div class="xcarHubTitle">Настройки</div><div class="xcarHubDesc">Тема, сервер, резервная копия и параметры</div></div><div class="xcarHubChevron">›</div>
 </button>
@@ -1023,6 +1115,15 @@ html[data-theme="dark"] .navBtn::before{background:#122033;border-color:#2a3b50;
 <div class="standaloneAccountState" id="standaloneAccountState"><div class="settingsSectionDesc" id="standaloneAccountStatus">Проверка состояния аккаунта…</div><div class="btnRow" id="standaloneConnectedRow" style="display:none;"><button type="button" class="b1" id="standaloneSyncBtn">🔄 Синхронизировать</button><button type="button" class="b3" id="standaloneLogoutBtn" style="background:#5a6270;">🚪 Выйти</button></div></div>
 </div>
 </div>
+<div class="modalOverlay" id="supportModal">
+<div class="modalCard supportModal">
+<button class="modalClose" id="supportCloseBtn">✕</button>
+<div class="modalTitle">💬 Техподдержка</div>
+<div class="modalSub">Напишите сообщение — оно будет отправлено в XCAR Управление</div>
+<div class="supportChat">
+<div class="supportUsers" id="supportUsers"><button class="supportUser active" type="button"><div class="supportUserAvatar">🛠️</div><div class="supportUserText"><div class="supportUserName">XCAR Поддержка</div><div class="supportUserSub">Онлайн</div></div></button></div>
+<div class="supportChatMain"><div class="supportChatHead">🛠️ XCAR Поддержка</div><div class="supportMessages" id="supportMessages"><div class="supportMsg admin">Здравствуйте! Чем можем помочь?</div></div><div class="supportComposer"><input id="supportInput" placeholder="Напишите сообщение…" autocomplete="off"><button type="button" class="b1 supportSendBtn" id="supportSendBtn" aria-label="Отправить">➤</button></div></div>
+</div></div></div>
 <div class="modalOverlay" id="notifyModal">
 <div class="modalCard">
 <button class="modalClose" id="notifyModalCloseBtn">✕</button>
@@ -1148,13 +1249,35 @@ html[data-theme="dark"] .navBtn::before{background:#122033;border-color:#2a3b50;
 <div class="settingsFolderHeader" data-folder="account">
 <div class="settingsFolderIconBadge">👤</div>
 <div class="settingsFolderHeaderText">
-<div class="settingsFolderTitle">Аккаунт и синхронизация</div>
-<div class="settingsFolderHint" id="accountFolderHint">Без регистрации</div>
+<div class="settingsFolderTitle">Сервер и связь</div>
+<div class="settingsFolderHint" id="accountFolderHint">Подключение к серверу XCAR</div>
 </div>
 <div class="settingsFolderChev">▾</div>
 </div>
 <div class="settingsFolderBody">
-<div class="settingsSectionDesc" id="accountStatusLine">Работает без регистрации — данные хранятся только на этом устройстве</div>
+<div class="settingsSectionDesc" id="accountStatusLine">Выберите сервер для синхронизации данных и проверьте соединение.</div>
+<div class="connectionPanel" id="connectionPanel">
+<div class="connectionRow connectionDefaultRow">
+<div class="connectionRowIcon">🌐</div>
+<div class="connectionRowInfo"><div class="connectionRowTitle">Сервер по умолчанию</div><div class="connectionRowValue" id="defaultServerValue">https://zero1-server-calculator-xcar.onrender.com</div></div>
+<label class="connectionSwitch"><input type="checkbox" id="serverDefaultToggle" checked><span></span></label>
+</div>
+<div class="connectionRow connectionManualRow">
+<div class="connectionRowIcon">✎</div>
+<div class="connectionRowInfo"><div class="connectionRowTitle">Свой сервер</div><div class="connectionRowSub">Можно использовать вместо сервера по умолчанию</div></div>
+<input class="connectionManualInput" id="serverManualUrl" type="url" placeholder="https://ваш-сервер.onrender.com">
+</div>
+<div class="connectionRow connectionStatusRow">
+<div class="connectionRowIcon" id="connectionStatusIcon">📡</div>
+<div class="connectionRowInfo"><div class="connectionRowTitle">Пинг и связь</div><div class="connectionRowValue" id="connectionStatusText">Готово к проверке</div></div>
+<div class="connectionIndicator idle" id="connectionIndicator"><span></span><b id="connectionIndicatorLabel">Не проверено</b></div>
+<button type="button" class="connectionPingBtn" id="connectionPingBtn">Проверить</button>
+</div>
+<div class="connectionActions">
+<button type="button" class="b3 connectionCancelBtn" id="connectionCancelBtn">Отмена</button>
+<button type="button" class="b1 connectionSaveBtn" id="connectionSaveBtn">Сохранить</button>
+</div>
+</div>
 <button type="button" class="accountServerLink" id="accountServerLinkBtn" title="Настройки сервера — в разделе «Серверы» выше">
 <span class="accountServerLinkIcon">🌐</span>
 <span class="accountServerLinkInfo">
@@ -1244,6 +1367,26 @@ html[data-theme="dark"] .navBtn::before{background:#122033;border-color:#2a3b50;
 <span class="rentSwitchLabel">Показывать стрелки навигации</span>
 <span class="rentSwitchTrack"><span class="rentSwitchThumb"></span></span>
 </label>
+</div>
+</div>
+
+<div class="settingsFolder" id="folderEdgeSize">
+<div class="settingsFolderHeader" data-folder="edgeSize">
+<div class="settingsFolderIconBadge">↔️</div>
+<div class="settingsFolderHeaderText">
+<div class="settingsFolderTitle">Размер боковых кнопок</div>
+<div class="settingsFolderHint" id="edgeSizeFolderHint">По умолчанию: вариант 3 — большой</div>
+</div>
+<div class="settingsFolderChev">▾</div>
+</div>
+<div class="settingsFolderBody">
+<div class="settingsSectionDesc">Выберите размер зоны нажатия слева и справа. Видимая полоска остаётся аккуратной, увеличивается именно область нажатия.</div>
+<div class="edgeSizeRow">
+<button type="button" class="edgeSizeOpt" data-edge-size="current"><div class="edgeSizePreview"><i></i><i class="r"></i></div><div class="edgeSizeName">1. Текущий</div><div class="edgeSizeDesc">узкая зона</div></button>
+<button type="button" class="edgeSizeOpt" data-edge-size="medium"><div class="edgeSizePreview m"><i></i><i class="r"></i></div><div class="edgeSizeName">2. Средний</div><div class="edgeSizeDesc">в 2 раза</div></button>
+<button type="button" class="edgeSizeOpt" data-edge-size="large"><div class="edgeSizePreview l"><i></i><i class="r"></i></div><div class="edgeSizeName">3. Большой</div><div class="edgeSizeDesc">в 3 раза</div></button>
+<button type="button" class="edgeSizeOpt" data-edge-size="max"><div class="edgeSizePreview xl"><i></i><i class="r"></i></div><div class="edgeSizeName">4. Макс.</div><div class="edgeSizeDesc">в 4 раза</div></button>
+</div>
 </div>
 </div>
 
@@ -1644,10 +1787,10 @@ const SETTINGS_KEY="xcarSettings";
 const SUBSCRIPTION_DEFAULT_DAYS=365;
 // сервер по умолчанию — уже подключён у каждого нового пользователя приложения,
 // добавлять вручную в Настройках не нужно
-const DEFAULT_SERVER_URL="https://xcar-kalk-klient.onrender.com";
+const DEFAULT_SERVER_URL="https://zero1-server-calculator-xcar.onrender.com";
 const DEFAULT_SERVER_ID="default-render";
 function defaultSettings(){
-return {billingMode:"prepay",account:{serverUrl:DEFAULT_SERVER_URL,username:"",password:"",email:"",phone:"",connected:false},serverProfiles:[{id:DEFAULT_SERVER_ID,name:"Render (XCAR)",url:DEFAULT_SERVER_URL}],activeServerProfileId:DEFAULT_SERVER_ID,pushEnabled:false,pushEndpoint:"",theme:"light",showNavArrows:true,subscriptionUntil:Date.now()+SUBSCRIPTION_DEFAULT_DAYS*86400000,autoSyncEnabled:true,autoSyncIntervalSec:30,fleetViewStyle:"current",uiStyle:"standard"};
+return {billingMode:"prepay",account:{serverUrl:DEFAULT_SERVER_URL,username:"",password:"",email:"",phone:"",connected:false},serverUseDefault:true,serverManualUrl:"",serverProfiles:[{id:DEFAULT_SERVER_ID,name:"XCAR Server (по умолчанию)",url:DEFAULT_SERVER_URL}],activeServerProfileId:DEFAULT_SERVER_ID,pushEnabled:false,pushEndpoint:"",theme:"light",showNavArrows:true,subscriptionUntil:Date.now()+SUBSCRIPTION_DEFAULT_DAYS*86400000,autoSyncEnabled:true,autoSyncIntervalSec:30,fleetViewStyle:"current",uiStyle:"standard",edgeSize:"large"};
 }
 function loadSettings(){
 try{
@@ -1668,6 +1811,8 @@ connected:!!acc.connected
 },
 serverProfiles:profiles,
 activeServerProfileId:typeof parsed.activeServerProfileId==="string"?parsed.activeServerProfileId:null,
+serverUseDefault:parsed.serverUseDefault!==false,
+serverManualUrl:typeof parsed.serverManualUrl==="string"?parsed.serverManualUrl:"",
 pushEnabled:!!parsed.pushEnabled,
 pushEndpoint:typeof parsed.pushEndpoint==="string"?parsed.pushEndpoint:"",
 theme:parsed.theme==="dark"?"dark":"light",
@@ -1676,7 +1821,8 @@ subscriptionUntil:typeof parsed.subscriptionUntil==="number"&&parsed.subscriptio
 autoSyncEnabled:parsed.autoSyncEnabled!==false,
 autoSyncIntervalSec:Math.min(59,Math.max(1,parseInt(parsed.autoSyncIntervalSec,10)||30)),
 fleetViewStyle:(parsed.fleetViewStyle==="tile"?"grid":parsed.fleetViewStyle==="compact"?"list":parsed.fleetViewStyle==="list"?"current":["grid","list","current","premium"].includes(parsed.fleetViewStyle)?parsed.fleetViewStyle:"current"),
-uiStyle:parsed.uiStyle==="new"?"new":"standard"
+uiStyle:parsed.uiStyle==="new"?"new":"standard",
+edgeSize:["current","medium","large","max"].includes(parsed.edgeSize)?parsed.edgeSize:"large"
 };
 }catch(e){return defaultSettings();}
 }
@@ -1692,8 +1838,19 @@ if(meta) meta.setAttribute("content",settings.theme==="dark"?"#070b13":"#0b1f33"
 function applyUIStyle(){
 document.documentElement.setAttribute("data-ui-style",settings.uiStyle==="new"?"new":"standard");
 }
+function applyEdgeSize(){
+const root=document.documentElement;
+root.classList.remove("edge-size-current","edge-size-medium","edge-size-large","edge-size-max");
+const mode=["current","medium","large","max"].includes(settings.edgeSize)?settings.edgeSize:"large";
+root.classList.add("edge-size-"+mode);
+}
 applyTheme();
 applyUIStyle();
+applyEdgeSize();
+
+async function xcarLoadManagedServerConfig(){try{const bootstrap=DEFAULT_SERVER_URL.replace(/\/+$/,'');const r=await fetch(bootstrap+'/api/public/config',{cache:'no-store'});if(!r.ok)return;const d=await r.json();const url=String(d.clientServerUrl||'').trim().replace(/\/+$/,'');if(!/^https?:\/\//i.test(url))return;if(settings.serverUseDefault!==false && !settings.serverManualUrl){settings.account.serverUrl=url;settings.serverProfiles=(settings.serverProfiles||[]).map(p=>p.id===DEFAULT_SERVER_ID?{...p,url}:p);saveSettings();renderServerSettings();}}catch(e){}}
+xcarLoadManagedServerConfig();
+
 function applyNavArrowsVisibility(){
 const v=settings.showNavArrows!==false;
 const l=document.getElementById("navLeftBtn");
@@ -3246,11 +3403,12 @@ accountModal.addEventListener("click",e=>{if(e.target===accountModal) accountMod
 
 // Резервный обработчик для тач/мыши: строки XCAR Hub всегда кликабельны.
 document.addEventListener("click",(e)=>{
-  const row=e.target.closest?.("#hubAccountBtn,#hubNotesBtn,#hubBlacklistBtn,#hubSettingsBtn");
+  const row=e.target.closest?.("#hubAccountBtn,#hubNotesBtn,#hubBlacklistBtn,#hubSupportBtn,#hubSettingsBtn");
   if(!row) return;
   if(row.id==="hubAccountBtn"){contactsModal.classList.remove("open");renderStandaloneAuthModal();accountModal.classList.add("open");vibrate(8);}
   else if(row.id==="hubNotesBtn"){contactsModal.classList.remove("open");openNotes();vibrate(8);}
   else if(row.id==="hubBlacklistBtn"){openBlacklistPanel();}
+  else if(row.id==="hubSupportBtn"){openSupport();}
   else if(row.id==="hubSettingsBtn"){openSettingsPanel();}
   e.preventDefault(); e.stopImmediatePropagation();
 },{capture:true});
@@ -3430,6 +3588,24 @@ const hint=document.getElementById("navFolderHint");
 if(hint) hint.textContent=settings.showNavArrows!==false?"Стрелки показаны":"Стрелки скрыты";
 }
 
+function renderEdgeSizeUI(){
+const mode=["current","medium","large","max"].includes(settings.edgeSize)?settings.edgeSize:"large";
+document.querySelectorAll(".edgeSizeOpt").forEach(btn=>btn.classList.toggle("active",btn.dataset.edgeSize===mode));
+const labels={current:"Вариант 1 — текущий",medium:"Вариант 2 — средний",large:"Вариант 3 — большой",max:"Вариант 4 — максимальный"};
+const hint=document.getElementById("edgeSizeFolderHint");
+if(hint) hint.textContent=labels[mode]+(mode==="large"?" (по умолчанию)":"");
+applyEdgeSize();
+}
+document.querySelectorAll(".edgeSizeOpt").forEach(btn=>{
+btn.addEventListener("click",()=>{
+settings.edgeSize=btn.dataset.edgeSize;
+saveSettings();
+renderEdgeSizeUI();
+vibrate([10,20,10]);
+});
+});
+renderEdgeSizeUI();
+
 function openSettingsPanel(){
 contactsModal.classList.remove("open");
 accountModal.classList.remove("open");
@@ -3438,6 +3614,7 @@ renderAccountUI();
 renderServerProfiles();
 renderThemeUI();
 renderNavArrowsUI();
+renderEdgeSizeUI();
 renderSubscriptionUI();
 renderAutoSyncUI();
 const backupText=document.getElementById("settingsBackupText");
@@ -3650,7 +3827,7 @@ authBlock.style.display="";
 connectedRow.style.display="none";
 deleteBtn.style.display="none";
 if(pushRow) pushRow.style.display="none";
-statusLine.textContent="Работает без регистрации — данные хранятся только на этом устройстве";
+statusLine.textContent="Выберите сервер для синхронизации данных и проверьте соединение.";
 }
 }
 
@@ -3810,6 +3987,24 @@ vibrate([15,20,15]);
 });
 document.getElementById("serverPingAllBtn").addEventListener("click",()=>{vibrate(10);pingAllServerProfiles();});
 
+const connectionDraft={};
+function initConnectionPanel(){
+const toggle=document.getElementById("serverDefaultToggle");
+const manual=document.getElementById("serverManualUrl");
+const ping=document.getElementById("connectionPingBtn");
+const save=document.getElementById("connectionSaveBtn");
+const cancel=document.getElementById("connectionCancelBtn");
+if(!toggle||!manual||!ping||!save||!cancel) return;
+const syncDraft=()=>{toggle.checked=settings.serverUseDefault!==false;manual.value=settings.serverManualUrl||"";manual.disabled=toggle.checked;manual.style.opacity=toggle.checked?.55:1;};
+const setConn=(state,text,latency)=>{const ind=document.getElementById("connectionIndicator"), label=document.getElementById("connectionIndicatorLabel"), st=document.getElementById("connectionStatusText"), icon=document.getElementById("connectionStatusIcon"); if(!ind)return; ind.className="connectionIndicator "+state; label.textContent=text; st.textContent=latency||text; icon.textContent=state==="ok"?"🟢":state==="err"?"🔴":state==="pending"?"🟡":"📡";};
+const currentUrl=()=> (toggle.checked?DEFAULT_SERVER_URL:(manual.value.trim()||DEFAULT_SERVER_URL)).replace(/\/+$/,'');
+toggle.addEventListener("change",()=>{manual.disabled=toggle.checked;manual.style.opacity=toggle.checked?.55:1;setConn("idle",toggle.checked?"По умолчанию выбран":"Ожидает проверки",toggle.checked?DEFAULT_SERVER_URL:"Введите адрес своего сервера");});
+ping.addEventListener("click",async()=>{const url=currentUrl(); if(!url){setConn("err","Нет адреса","Укажите адрес сервера");return;} setConn("pending","Проверка…","Проверяем связь с сервером"); ping.disabled=true; const controller=typeof AbortController!=="undefined"?new AbortController():null; const timer=controller?setTimeout(()=>controller.abort(),5000):null; const started=performance.now(); try{const r=await fetch(url+"/health",{cache:"no-store",signal:controller?.signal}); const ms=Math.round(performance.now()-started); if(r.ok)setConn("ok","Соединение установлено",`Онлайн · ${ms} мс`); else setConn("err","Ошибка сервера",`HTTP ${r.status}`);}catch(e){setConn("err","Нет связи",e?.name==="AbortError"?"Таймаут 5 сек":"Сервер недоступен");}finally{if(timer)clearTimeout(timer);ping.disabled=false;}});
+save.addEventListener("click",()=>{const useDefault=toggle.checked; const manualUrl=manual.value.trim(); if(!useDefault&&!manualUrl){setConn("err","Не сохранено","Введите адрес своего сервера или включите «по умолчанию»");vibrate(20);return;} settings.serverUseDefault=useDefault; settings.serverManualUrl=manualUrl; settings.account.serverUrl=useDefault?DEFAULT_SERVER_URL:manualUrl; settings.serverProfiles=settings.serverProfiles||[]; let p=settings.serverProfiles.find(x=>x.id===DEFAULT_SERVER_ID); if(!p){settings.serverProfiles.unshift({id:DEFAULT_SERVER_ID,name:"XCAR Server (по умолчанию)",url:DEFAULT_SERVER_URL});} else {p.name="XCAR Server (по умолчанию)";p.url=DEFAULT_SERVER_URL;} if(useDefault){settings.activeServerProfileId=DEFAULT_SERVER_ID;} else {const id="manual-server"; let mp=settings.serverProfiles.find(x=>x.id===id); if(!mp){mp={id,name:"Мой сервер",url:manualUrl};settings.serverProfiles.push(mp);} else mp.url=manualUrl; settings.activeServerProfileId=id;} saveSettings(); renderAccountServerLink(); renderServerProfiles(); setConn("ok","Сохранено ✓",useDefault?"Используется сервер по умолчанию":manualUrl); setAccountHint("Настройки сервера сохранены ✓",false); vibrate([15,25,15]);});
+cancel.addEventListener("click",()=>{syncDraft();setConn("idle","Изменения отменены","Текущие настройки восстановлены");vibrate(8);});
+syncDraft(); setConn("idle",toggle.checked?"По умолчанию":"Ручной сервер",toggle.checked?DEFAULT_SERVER_URL:(manual.value||"Введите адрес своего сервера"));
+}
+initConnectionPanel();
 async function doRegister(){
 const a=settings.account;
 if(!a.serverUrl||!a.serverUrl.trim()){setAccountHint("Укажите адрес сервера",true);vibrate(20);return;}
@@ -4710,6 +4905,20 @@ document.getElementById("iosHint").style.display="block";
 }
 })();
 
+
+// ==================== ТЕХПОДДЕРЖКА ====================
+let supportPollTimer=null;
+function supportBase(){return (settings.account.serverUrl||DEFAULT_SERVER_URL||'').trim().replace(/\/+$/,'');}
+function renderSupportMessages(list){const box=document.getElementById('supportMessages');if(!box)return;box.innerHTML=(list||[]).map(m=>`<div class="supportMsg ${m.from_admin?'admin':'user'}">${escapeHtml(m.message||'')}<span class="supportMsgTime">${m.created_at?new Date(m.created_at).toLocaleTimeString('ru-RU',{hour:'2-digit',minute:'2-digit'}):''}</span></div>`).join('')||'<div class="settingsSectionDesc">Пока сообщений нет. Напишите нам.</div>';box.scrollTop=box.scrollHeight;}
+async function loadSupportMessages(){const base=supportBase();if(!base||!settings.account.username)return;try{const r=await fetch(base+'/api/messages',{headers:settings.account.token?{Authorization:'Bearer '+settings.account.token}:{}});if(!r.ok)return;const d=await r.json();renderSupportMessages(d.messages||[]);}catch(e){}}
+function openSupport(){contactsModal.classList.remove('open');document.getElementById('supportModal').classList.add('open');loadSupportMessages();clearInterval(supportPollTimer);supportPollTimer=setInterval(loadSupportMessages,5000);setTimeout(()=>document.getElementById('supportInput')?.focus(),120);vibrate(8);}
+async function sendSupportMessage(){const input=document.getElementById('supportInput');const text=(input.value||'').trim();if(!text)return;const base=supportBase();if(!base||!settings.account.username){input.value='';return;}try{const r=await fetch(base+'/api/messages',{method:'POST',headers:{'Content-Type':'application/json',...(settings.account.token?{Authorization:'Bearer '+settings.account.token}:{})},body:JSON.stringify({message:text})});if(r.ok){input.value='';await loadSupportMessages();vibrate(8);}else{input.placeholder='Не удалось отправить';}}catch(e){input.placeholder='Нет связи с сервером';}}
+const supportBtn=document.getElementById('hubSupportBtn');if(supportBtn)supportBtn.addEventListener('click',openSupport);
+document.getElementById('supportCloseBtn')?.addEventListener('click',()=>{document.getElementById('supportModal').classList.remove('open');clearInterval(supportPollTimer);});
+document.getElementById('supportModal')?.addEventListener('click',e=>{if(e.target.id==='supportModal'){e.target.classList.remove('open');clearInterval(supportPollTimer);}});
+document.getElementById('supportSendBtn')?.addEventListener('click',sendSupportMessage);
+document.getElementById('supportInput')?.addEventListener('keydown',e=>{if(e.key==='Enter')sendSupportMessage();});
+
 // XCAR subscription plans
 const XCAR_SUB_PLANS=[
  {months:1,discount:0},
@@ -4733,6 +4942,7 @@ let SUBSCRIPTION_BANK="Сбербанк";
 let SUBSCRIPTION_CARD_NUMBER="";
 let SUBSCRIPTION_RECIPIENT="";
 let SUBSCRIPTION_PHONE="";
+let SUBSCRIPTION_QR_TEXT="";
 
 function getSubscriptionDaysLeft(){
 return Math.max(0,Math.ceil(((settings.subscriptionUntil||0)-Date.now())/86400000));
@@ -4776,7 +4986,7 @@ ctx.fillText("QR недоступен офлайн",canvas.width/2,canvas.height
 return;
 }
 try{
-const text=`Оплата подписки XCAR\n${SUBSCRIPTION_PRICE_TEXT}\nБанк: ${SUBSCRIPTION_BANK}\nКарта: ${SUBSCRIPTION_CARD_NUMBER}\nПолучатель: ${SUBSCRIPTION_RECIPIENT}\nТел: ${SUBSCRIPTION_PHONE}`;
+const text=SUBSCRIPTION_QR_TEXT||`Оплата подписки XCAR\n${SUBSCRIPTION_PRICE_TEXT}\nБанк: ${SUBSCRIPTION_BANK}\nКарта: ${SUBSCRIPTION_CARD_NUMBER}\nПолучатель: ${SUBSCRIPTION_RECIPIENT}\nТел: ${SUBSCRIPTION_PHONE}`;
 const qr=qrcode(0,"M");
 qr.addData(text);
 qr.make();
@@ -4793,7 +5003,7 @@ if(qr.isDark(r,c)) ctx.fillRect(c*cell,r*cell,cell+0.5,cell+0.5);
 }
 }catch(e){}
 }
-async function xcarLoadPublicSubscription(){const base=(settings.account.serverUrl||"").trim().replace(/\/+$/ ,"");if(!base)return;try{const r=await fetch(base+"/api/public/subscription");if(!r.ok)return;const d=await r.json();SUBSCRIPTION_BANK=d.bank||SUBSCRIPTION_BANK;SUBSCRIPTION_CARD_NUMBER=d.cardNumber||SUBSCRIPTION_CARD_NUMBER;SUBSCRIPTION_RECIPIENT=d.recipient||SUBSCRIPTION_RECIPIENT;SUBSCRIPTION_PHONE=d.phone||SUBSCRIPTION_PHONE;const basePrice=Number(d.monthPrice||500);SUBSCRIPTION_PRICE_TEXT=basePrice+" ₽ / месяц";xcarRenderPlans(basePrice);}catch(e){}}
+async function xcarLoadPublicSubscription(){const base=(settings.account.serverUrl||"").trim().replace(/\/+$/ ,"");if(!base)return;try{const r=await fetch(base+"/api/public/subscription");if(!r.ok)return;const d=await r.json();SUBSCRIPTION_BANK=d.bank||SUBSCRIPTION_BANK;SUBSCRIPTION_CARD_NUMBER=d.cardNumber||SUBSCRIPTION_CARD_NUMBER;SUBSCRIPTION_RECIPIENT=d.recipient||SUBSCRIPTION_RECIPIENT;SUBSCRIPTION_PHONE=d.phone||SUBSCRIPTION_PHONE;SUBSCRIPTION_QR_TEXT=d.qrText||'';const basePrice=Number(d.monthPrice||500);SUBSCRIPTION_PRICE_TEXT=basePrice+" ₽ / месяц";xcarRenderPlans(basePrice);}catch(e){}}
 function openSubscriptionModal(){
 document.getElementById("subscriptionModalSub").textContent=isSubscriptionExpired()?"Подписка истекла — доступна только 1 машина":`Осталось ${getSubscriptionDaysLeft()} дней`;
 document.getElementById("subRequisites").innerHTML=
@@ -4970,6 +5180,16 @@ renderSubscriptionUI();
 })();
 
 </script>
+
+<div class="xcarBroadcastOverlay" id="xcarBroadcastOverlay">
+  <div class="xcarBroadcastCard">
+    <div class="xcarBroadcastIcon">📣</div>
+    <h2 class="xcarBroadcastTitle" id="xcarBroadcastTitle">Сообщение от XCAR</h2>
+    <div class="xcarBroadcastText" id="xcarBroadcastText"></div>
+    <div class="xcarBroadcastMeta" id="xcarBroadcastMeta"></div>
+    <button class="xcarBroadcastClose" id="xcarBroadcastClose">Понятно</button>
+  </div>
+</div>
 </body>
 </html>
 
@@ -5466,4 +5686,39 @@ html[data-theme="dark"] .carListWrap.viewTile .rentSwitch{border-top-color:#2a39
   .carListWrap.viewTile .carEditName{height:34px!important;font-size:13px!important;}
   .carListWrap.viewTile .carEditPrice{height:29px!important;font-size:14px!important;}
 }
+
+/* XCAR: enlarged date/time picker touch targets */
+input[type="date"], input[type="time"]{
+  position:relative!important;
+  padding-right:72px!important;
+}
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator{
+  width:56px!important;
+  height:100%!important;
+  min-width:56px!important;
+  padding:0 14px!important;
+  margin:0 -8px 0 0!important;
+  cursor:pointer!important;
+  opacity:1!important;
+  transform:none!important;
+}
+@media (pointer:coarse){
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator{
+    width:64px!important;
+    min-width:64px!important;
+    padding:0 18px!important;
+  }
+  input[type="date"], input[type="time"]{padding-right:82px!important;min-height:58px!important}
+}
+
+/* XCAR broadcast from Super Admin */
+.xcarBroadcastOverlay{position:fixed;inset:0;background:rgba(4,10,18,.48);backdrop-filter:blur(9px);display:none;align-items:center;justify-content:center;padding:18px;z-index:9999;animation:xcFade .22s ease}
+.xcarBroadcastOverlay.open{display:flex}
+.xcarBroadcastCard{width:min(430px,94vw);border-radius:28px;background:linear-gradient(145deg,#ffffff,#f2f7ff);border:1px solid rgba(255,255,255,.8);box-shadow:0 30px 90px rgba(0,0,0,.28);padding:22px;transform:translateY(16px) scale(.96);animation:xcPop .38s cubic-bezier(.2,.85,.25,1) forwards}
+.xcarBroadcastIcon{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:31px;background:linear-gradient(145deg,#dcecff,#fff);box-shadow:0 8px 25px rgba(30,100,255,.18);margin-bottom:13px}
+.xcarBroadcastTitle{font-size:22px;font-weight:950;color:#142033;margin:0 0 7px}.xcarBroadcastText{font-size:15px;line-height:1.55;color:#526176;white-space:pre-wrap}.xcarBroadcastMeta{font-size:10px;color:#91a0b2;margin-top:10px}.xcarBroadcastClose{width:100%;margin-top:16px;border:0;border-radius:15px;padding:13px;background:#142033;color:#fff;font-weight:900;font-size:14px}
+@keyframes xcFade{from{opacity:0}to{opacity:1}}@keyframes xcPop{to{transform:translateY(0) scale(1)}}
+html[data-theme="dark"] .xcarBroadcastCard{background:linear-gradient(145deg,#162234,#0f1825);border-color:#2b3a50}.dark .xcarBroadcastCard{background:#162234}.dark .xcarBroadcastTitle{color:#f5f8ff}.dark .xcarBroadcastText{color:#b4c0d0}
 </style>
