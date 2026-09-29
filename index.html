@@ -238,13 +238,16 @@ td{padding:12px;text-align:center;border-bottom:1px solid #e5e5e5;}
 
 .carSettingsRow{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .carSettingsRow input{margin:0;padding:10px 12px;font-size:16px;border-radius:12px;}
-.carNameWrap{position:relative;flex:1.4;min-width:0;border-radius:14px;overflow:hidden;background:#f9fbfd;}
+.carNameWrap{position:relative;flex:1.4;min-width:0;border-radius:14px;overflow:hidden;background:transparent;}
 .carEditName{width:100%;position:relative;z-index:1;background:transparent;box-sizing:border-box;}
 .carNameFill{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;
 background:linear-gradient(90deg,#ef4444 0%,#f5c518 50%,#22c55e 100%);
 clip-path:inset(0 100% 0 0);transition:clip-path 1s linear,opacity .3s ease;}
 .carNameFill.active{opacity:.4;}
 .carEditPrice{flex:1;min-width:0;}
+.carManageCard .carEditName,.carManageCard .carEditPrice{border:none!important;background:transparent!important;box-shadow:none!important;padding:4px 2px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;}
+.carManageCard .carEditName{font-weight:850;color:#15263a;}
+.carManageCard .carEditPrice{font-weight:900;color:#0047ff;}
 .carDeleteBtn{flex-shrink:0;width:38px;height:38px;border-radius:11px;border:none;background:#fdeaea;color:#c62828;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
 .carDeleteBtn:active{background:#f8c9c9;}
 .carRentOpenBtn{width:100%;margin-top:9px;padding:11px 14px;border:1px solid #0a8f4d;background:linear-gradient(135deg,#18c96a,#0a9f52);color:#fff;border-radius:13px;font-size:14px;font-weight:850;box-shadow:0 5px 14px rgba(24,201,106,.22);transition:transform .12s ease,filter .15s ease,box-shadow .15s ease;}
@@ -411,9 +414,9 @@ height:40px;background:#ffffff;border-top:1px solid #e5e5e5;font-size:11px;
 .cardViewMenu.open{display:flex;}
 .cardViewMenuCard{width:min(430px,100%);background:#fff;border-radius:24px;padding:18px;box-shadow:0 24px 70px rgba(0,0,0,.28);}
 .cardViewMenuTitle{font-size:17px;font-weight:900;color:#15263a;margin-bottom:12px;}
-.cardViewMenuGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.cardViewMenuBtn{border:1px solid #dfe6ef;background:#f7f9fc;border-radius:16px;padding:13px 7px;min-height:78px;font-weight:800;color:#22344a;cursor:pointer;}
-.cardViewMenuBtn span{display:block;font-size:23px;margin-bottom:5px;}
+.cardViewMenuGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.cardViewMenuBtn{border:1px solid #dfe6ef;background:#f7f9fc;border-radius:16px;padding:12px 4px;min-height:74px;font-weight:800;color:#22344a;cursor:pointer;font-size:12.5px;}
+.cardViewMenuBtn span{display:block;font-size:20px;margin-bottom:5px;}
 .cardViewMenuBtn.active{border-color:#15b95b;background:#eafaf1;box-shadow:0 6px 18px rgba(21,185,91,.13);}
 .notesTopBtn{position:relative;}
 .notesDot{position:absolute;right:5px;top:4px;width:7px;height:7px;border-radius:50%;background:#18c96a;display:none;box-shadow:0 0 0 3px rgba(24,201,106,.15);}
@@ -434,19 +437,25 @@ height:40px;background:#ffffff;border-top:1px solid #e5e5e5;font-size:11px;
 .carReserveBtn{border:1px solid #dbe4ef;background:#f6f8fb;color:#506176;border-radius:10px;padding:7px 10px;font-size:11px;font-weight:900;cursor:pointer;}
 .carReserveBtn.active{background:#fff4dc;border-color:#f0b84b;color:#a66a00;box-shadow:0 3px 12px rgba(240,184,75,.18);}
 .carStatusRow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:8px;}
-.carStatusBadge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:900;letter-spacing:.2px;padding:5px 9px;border-radius:999px;border:1px solid transparent;}
-.carStatusDot{width:7px;height:7px;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px rgba(0,0,0,.04);}
-.carStatusFree{color:#087a3d;background:#eafaf1;border-color:#bce8cf;}
-.carStatusFree .carStatusDot{background:#16b85a;}
-.carStatusRented{color:#a33f00;background:#fff3e8;border-color:#ffd1b0;}
-.carStatusRented .carStatusDot{background:#f47a18;}
-.carStatusReserved{color:#8b5d00;background:#fff7df;border-color:#f0d58c;}
-.carStatusReserved .carStatusDot{background:#e5ad21;}
-html[data-theme="dark"] .carStatusFree{color:#b9f5d1;background:#0d3b25;border-color:#1c6841;}
-html[data-theme="dark"] .carStatusRented{color:#ffd1aa;background:#422515;border-color:#77472a;}
-html[data-theme="dark"] .carStatusReserved{color:#ffe29a;background:#3c3014;border-color:#725d25;}
+.carStatusBadge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:900;letter-spacing:.3px;padding:6px 11px;border-radius:999px;border:none;color:#fff;box-shadow:0 3px 9px rgba(0,0,0,.14);}
+.carStatusDot{width:6px;height:6px;border-radius:50%;display:inline-block;background:#fff;opacity:.9;}
+.carStatusFree{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.carStatusRented{background:linear-gradient(135deg,#f97316,#ea580c);}
+.carStatusReserved{background:linear-gradient(135deg,#eab308,#ca8a04);}
+html[data-theme="dark"] .carStatusFree{background:linear-gradient(135deg,#1ea652,#0f7d3c);box-shadow:0 3px 9px rgba(0,0,0,.32);}
+html[data-theme="dark"] .carStatusRented{background:linear-gradient(135deg,#e2650f,#b84e0a);box-shadow:0 3px 9px rgba(0,0,0,.32);}
+html[data-theme="dark"] .carStatusReserved{background:linear-gradient(135deg,#c99a0a,#a67c08);box-shadow:0 3px 9px rgba(0,0,0,.32);}
 .carReserveBadge{font-size:10px;font-weight:900;color:#a66a00;background:#fff4dc;border:1px solid #f0cf86;padding:5px 8px;border-radius:999px;}
 .carEditLongHint{font-size:10px;color:#8c98a8;font-weight:700;margin-top:5px;}
+
+/* ===== XCAR STANDARD (Стандарт) — badge + toggle on one row, date below ===== */
+.carManageCard.styleList{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;row-gap:6px;column-gap:8px;padding:13px;}
+.carManageCard.styleList .carSettingsRow{grid-column:1/-1;grid-row:1;margin-bottom:0;}
+.carManageCard.styleList .carPhotoAvatar{width:60px;height:60px;flex-shrink:0;}
+.carManageCard.styleList .carStatusRow{grid-column:1;grid-row:2;margin:0;}
+.carManageCard.styleList .rentSwitch{grid-column:2;grid-row:2;margin:0;padding:0;border-top:0;justify-content:flex-end;gap:9px;}
+.carManageCard.styleList .rentSwitchLabel{display:none;}
+.carManageCard.styleList .carRentSince{grid-column:1/-1;grid-row:3;margin:0;}
 .carEditModalCard{max-width:430px;}
 .carEditLogoRow{display:flex;align-items:center;gap:12px;margin:12px 0 4px;}
 .carLogoPreview{width:58px;height:58px;border-radius:16px;background:#f0f3f7;border:1px solid #dbe2eb;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:25px;flex:0 0 auto;}
@@ -481,7 +490,9 @@ html[data-theme="dark"] .page2Tabs{background:#0a111d;border-top:1px solid #1d2a
 html[data-theme="dark"] .page2Tab{color:#7e8da4;}.page2Tab.active{color:inherit;}
 html[data-theme="dark"] .page2Content{background:#09111d;}
 html[data-theme="dark"] .carManageCard,html[data-theme="dark"] .rentedCard,html[data-theme="dark"] .historyItem{background:linear-gradient(145deg,#121d2d,#0e1827);border-color:#24344a;box-shadow:0 8px 24px rgba(0,0,0,.22);}
-html[data-theme="dark"] .carNameWrap,html[data-theme="dark"] .carEditName,html[data-theme="dark"] .carEditPrice{background:#172337!important;color:#f1f5fb;border-color:#293b54;}
+html[data-theme="dark"] .carNameWrap{background:transparent!important;}
+html[data-theme="dark"] .carEditName,html[data-theme="dark"] .carEditPrice{background:transparent!important;color:#f1f5fb;border-color:transparent;}
+html[data-theme="dark"] .carEditPrice{color:#8fc0ff;}
 html[data-theme="dark"] .carEditLongHint{color:#71819a;}
 
 /* ---- переключатель вида карточек автопарка: сетка / список / текущий ---- */
@@ -499,9 +510,9 @@ html[data-theme="dark"] .carEditHintOnce{color:#71819a;}
 .carPhotoAvatar img{width:100%;height:100%;object-fit:cover;display:block;}
 .carPhotoAvatar .carPhotoEmoji{font-size:20px;}
 .carPhotoBtn{position:absolute;right:-3px;bottom:-3px;width:22px;height:22px;border-radius:50%;border:2px solid #fff;background:#0047ff;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 6px rgba(0,71,255,.4);padding:0;-webkit-tap-highlight-color:transparent;}
-.carManageCard.styleList .carPhotoAvatar{width:40px;height:40px;border-radius:12px;}
+.carManageCard.styleList .carPhotoAvatar{width:40px;height:40px;border-radius:12px;cursor:pointer;}
 .carManageCard.styleList .carPhotoAvatar .carPhotoEmoji{font-size:17px;}
-.carManageCard.styleList .carPhotoBtn{width:17px;height:17px;font-size:8px;}
+.carManageCard.styleList .carPhotoBtn{display:none!important;}
 
 /* ---- ПЛИТКА: сетка 2 колонки, крупное фото сверху ---- */
 .carListWrap.viewTile{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;}
@@ -537,22 +548,26 @@ html[data-theme="dark"] .carEditHintOnce{color:#71819a;}
 .premiumVisual .carPhotoAvatar .carPhotoEmoji{font-size:62px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.12));}
 .premiumVisual .carPhotoBtn{right:12px;bottom:12px;width:34px;height:34px;font-size:13px;border-width:2px;background:rgba(255,255,255,.94);color:#173b67;box-shadow:0 6px 18px rgba(0,0,0,.16);backdrop-filter:blur(8px);}
 .premiumShade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,16,30,.02) 25%,rgba(4,16,30,.58) 100%);pointer-events:none;}
-.premiumTopBadge{position:absolute;left:14px;bottom:14px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.92);color:#173b67;font-size:10px;font-weight:900;letter-spacing:.4px;box-shadow:0 5px 14px rgba(0,0,0,.12);backdrop-filter:blur(8px);}
+.premiumTopBadge{position:absolute;left:14px;bottom:14px;padding:7px 12px;border-radius:999px;color:#fff;font-size:10px;font-weight:900;letter-spacing:.4px;box-shadow:0 5px 14px rgba(0,0,0,.18);}
+.premiumTopBadge.badgeFree{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.premiumTopBadge.badgeRented{background:linear-gradient(135deg,#f97316,#ea580c);}
+.premiumTopBadge.badgeReserved{background:linear-gradient(135deg,#eab308,#ca8a04);}
 .carManageCard.stylePremium .carDeleteBtn{position:absolute;right:12px;top:12px;width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.72);box-shadow:0 6px 16px rgba(0,0,0,.14);z-index:3;}
 .premiumBody{padding:14px 15px 12px;}
-.premiumTitleRow{display:flex;align-items:center;gap:10px;min-width:0;}
-.carPremiumName{flex:1;min-width:0;font-size:19px!important;font-weight:900!important;color:#12253b!important;background:#f5f8fb!important;border:1px solid #e9eef4!important;border-radius:13px!important;padding:10px 11px!important;}
-.premiumPrice{display:flex;align-items:baseline;gap:3px;flex-shrink:0;padding:9px 10px;border-radius:13px;background:#eaf3ff;color:#0b4da2;font-weight:900;white-space:nowrap;}
-.carPremiumPrice{width:66px;border:0!important;background:transparent!important;padding:0!important;color:inherit!important;font-size:17px!important;font-weight:900!important;text-align:right;}
-.premiumPrice small{font-size:9px;color:#6c7f95;font-weight:800;}
+.premiumTitleRow{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;}
+.carPremiumName{flex:1;min-width:0;font-size:19px!important;font-weight:900!important;color:#12253b!important;background:transparent!important;border:0!important;padding:2px 0!important;}
+.premiumPrice{display:flex;align-items:baseline;gap:3px;flex-shrink:0;padding:0;border-radius:0;background:transparent;color:#0047ff;font-weight:900;white-space:nowrap;}
+.carPremiumPrice{width:94px;border:0!important;background:transparent!important;padding:0!important;color:inherit!important;font-size:19px!important;font-weight:900!important;text-align:right;}
+.premiumPrice small{font-size:10px;color:#6c7f95;font-weight:800;}
 .premiumMeta{display:flex;gap:10px;flex-wrap:wrap;margin:9px 1px 0;color:#7b8999;font-size:10.5px;font-weight:700;}
+.premiumMeta:empty{display:none;margin:0;}
 .carManageCard.stylePremium .rentSwitch{margin-top:10px;border-top:1px solid #edf1f5;padding:10px 2px 4px;}
 .carManageCard.stylePremium .carRentSince{margin:5px 2px 0;font-size:10px;}
 
 html[data-theme="dark"] .carManageCard.stylePremium{background:linear-gradient(145deg,#132033,#0d1725);border-color:#26384f;box-shadow:0 18px 42px rgba(0,0,0,.32);}
 html[data-theme="dark"] .premiumVisual,.html[data-theme="dark"] .premiumVisual .carPhotoAvatar{background:linear-gradient(135deg,#1b2b40,#101a29);}
-html[data-theme="dark"] .carPremiumName{background:#18263a!important;border-color:#2b3d55!important;color:#f1f5fb!important;}
-html[data-theme="dark"] .premiumPrice{background:#172b45;color:#8fc0ff;}
+html[data-theme="dark"] .carPremiumName{background:transparent!important;border-color:transparent!important;color:#f1f5fb!important;}
+html[data-theme="dark"] .premiumPrice{background:transparent;color:#8fc0ff;}
 html[data-theme="dark"] .premiumPrice small,.html[data-theme="dark"] .premiumMeta{color:#8193a9;}
 html[data-theme="dark"] .carManageCard.stylePremium .rentSwitch{border-top-color:#26364b;}
 
@@ -720,33 +735,85 @@ html[data-theme="dark"] .blacklistClean{background:#0f2a1c;border-color:#1f5c3c;
 html[data-theme="dark"] .blacklistResultItem{background:#2a1414;border-color:#5c2323;color:#f87171;}
 .blacklistFullScreenCard{width:100vw!important;max-width:none!important;height:100dvh!important;max-height:none!important;margin:0!important;border-radius:0!important;padding:22px clamp(18px,3vw,44px) calc(24px + env(safe-area-inset-bottom))!important;box-sizing:border-box!important;display:flex;flex-direction:column;overflow:hidden!important;background:linear-gradient(180deg,#ffffff 0%,#f8f7ff 100%)!important;box-shadow:none!important;}
 .blacklistFullScreenCard .blacklistBody{flex:1;min-height:0;overflow:auto;padding-right:4px;}
-.blacklistHero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:22px;background:linear-gradient(135deg,#f4efff,#ffffff);border:1px solid #e7ddff;margin-bottom:12px;}
-.blacklistHeroTitle{font-size:clamp(20px,2.2vw,30px);font-weight:950;color:#24113f;letter-spacing:-.5px;}
-.blacklistHeroSub{font-size:12px;color:#725b8e;margin-top:4px;}
-.blacklistSummary{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;}
-.blacklistStat{padding:8px 11px;border-radius:14px;background:#fff;border:1px solid #e8ddff;color:#54258a;font-weight:900;font-size:12px;}
+.blacklistHero{display:flex;flex-direction:column;gap:13px;padding:16px 18px;border-radius:22px;background:linear-gradient(135deg,#f4efff,#ffffff);border:1px solid #e7ddff;margin-bottom:12px;}
+.blacklistHeroTop{display:flex;align-items:center;gap:12px;}
+.blacklistHeroIconWrap{flex-shrink:0;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#fee2e2,#fecaca);color:#dc2626;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 4px 12px rgba(220,38,38,.16);}
+.blacklistHeroTextWrap{min-width:0;}
+.blacklistHeroTitle{font-size:19px;font-weight:950;color:#24113f;letter-spacing:-.3px;}
+.blacklistHeroSub{font-size:11.5px;color:#725b8e;margin-top:3px;font-weight:700;}
+.blacklistSummary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.blacklistStat{display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 6px;border-radius:16px;background:#fff;border:1px solid #e8ddff;box-shadow:0 4px 12px rgba(83,43,126,.05);}
+.blacklistStatIcon{width:26px;height:26px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:12.5px;background:#f0e7ff;}
+.blacklistStatSync .blacklistStatIcon{background:#dbeafe;}
+.blacklistStatFiles .blacklistStatIcon{background:#fee2e2;}
+.blacklistStatMatches .blacklistStatIcon{background:#f3e8ff;}
+.blacklistStatLabel{font-size:9.5px;font-weight:800;color:#8a7aa3;letter-spacing:.2px;white-space:nowrap;}
+.blacklistStatValue{font-size:14px;font-weight:950;color:#32144f;}
 .blacklistSearchBox{position:sticky;top:0;z-index:3;padding:10px 0 12px;background:linear-gradient(180deg,#f8f7ff 75%,rgba(248,247,255,0));backdrop-filter:blur(10px);}
-.blacklistSearchRow{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:10px;}
-.blacklistSearchInput{height:52px!important;border-radius:17px!important;border:1px solid #d9cef1!important;background:#fff!important;font-size:16px!important;padding:0 16px!important;box-shadow:0 8px 24px rgba(83,43,126,.07);}
-.blacklistSearchButton{height:52px!important;border-radius:17px!important;background:linear-gradient(135deg,#7c3aed,#a855f7)!important;border-color:#7c3aed!important;color:#fff!important;font-size:15px!important;font-weight:900!important;box-shadow:0 10px 26px rgba(124,58,237,.25);}
+.blacklistSearchRow{display:flex;align-items:center;gap:10px;}
+.blacklistSearchInput{flex:1;min-width:0;height:52px!important;border-radius:17px!important;border:1px solid #d9cef1!important;background:#fff!important;font-size:16px!important;padding:0 16px!important;box-shadow:0 8px 24px rgba(83,43,126,.07);}
+.blacklistSearchButton{flex-shrink:0;width:52px;height:52px;border-radius:17px;background:linear-gradient(135deg,#7c3aed,#a855f7);border:1px solid #7c3aed;color:#fff;font-size:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(124,58,237,.25);cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent;}
+.blacklistSearchButton:active{transform:scale(.94);}
 .blacklistResultFile{margin:0 0 14px;border-radius:20px;border:1px solid #e4d9f4;background:#fff;box-shadow:0 8px 24px rgba(47,22,73,.07);overflow:hidden;}
 .blacklistResultHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;background:linear-gradient(135deg,#fbf8ff,#f5efff);border-bottom:1px solid #eee4f8;}
 .blacklistResultFileName{font-weight:950;color:#32144f;word-break:break-word;}
 .blacklistResultCount{padding:6px 10px;border-radius:999px;background:#7c3aed;color:#fff;font-size:11px;font-weight:900;white-space:nowrap;}
-.blacklistMatch{padding:13px 16px;border-bottom:1px solid #f0eaf5;color:#4b315e;font-size:13px;line-height:1.55;}
+.blacklistMatch{display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-bottom:1px solid #f0eaf5;color:#4b315e;font-size:13px;line-height:1.55;}
 .blacklistMatch:last-child{border-bottom:0;}
-.blacklistMatchIndex{display:inline-flex;min-width:26px;height:26px;align-items:center;justify-content:center;border-radius:9px;background:#f0e7ff;color:#6d28d9;font-weight:950;font-size:11px;margin-right:8px;vertical-align:top;}
+.blacklistMatchIndex{display:flex;flex-shrink:0;width:28px;height:28px;margin-top:1px;align-items:center;justify-content:center;border-radius:50%;background:linear-gradient(135deg,#818cf8,#6366f1);color:#fff;font-weight:950;font-size:12px;box-shadow:0 3px 8px rgba(99,102,241,.28);}
 .blacklistHitText{display:inline-block;font-size:39px;line-height:1.18;font-weight:950;color:#7f1d1d;background:#fecaca;border:1px solid #fca5a5;border-radius:12px;padding:4px 10px;margin:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;vertical-align:middle;}
 .blacklistContextText{font-size:13px;line-height:1.55;color:#4b315e;}
 html[data-theme="dark"] .blacklistHitText{color:#fecaca;background:#5b1a1a;border-color:#7f1d1d;}
 html[data-theme="dark"] .blacklistContextText{color:#ddd6fe;}
+/* совпадение "отдельно над карточкой" — аккуратный заголовок + карточка-предупреждение снизу */
+.blacklistMatchAboveWrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:9px;}
+.blacklistMatchAboveHead{display:flex;align-items:center;gap:10px;}
+.blacklistMatchAboveBadges{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:6px;}
+.blacklistHitTextAbove{display:inline-block!important;background:none!important;border:none!important;padding:0!important;margin:0!important;box-shadow:none!important;font-weight:900!important;line-height:1.25!important;}
+.blacklistMatchPersonIcon{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:#ede9fe;color:#6d28d9;display:flex;align-items:center;justify-content:center;font-size:12px;}
+.blacklistContextTextBelow{display:flex!important;align-items:flex-start;gap:8px;padding:12px 14px;border-radius:14px;background:#fef2f2;border:1px solid #fecaca;font-size:13px;line-height:1.5;}
+.blacklistContextWarnIcon{flex-shrink:0;font-size:14px;line-height:1.4;}
+.blacklistContextTextInner{min-width:0;}
+html[data-theme="dark"] .blacklistMatchPersonIcon{background:#30204d;color:#d8b4fe;}
+html[data-theme="dark"] .blacklistContextTextBelow{background:#2a1414;border-color:#5c2323;}
 .blacklistEmpty{padding:32px 20px;border-radius:20px;background:#fff;border:1px dashed #d8c9e8;text-align:center;color:#6b5879;}
-@media(max-width:700px){.blacklistFullScreenCard{padding:14px 12px calc(16px + env(safe-area-inset-bottom))!important}.blacklistHero{padding:12px;border-radius:18px;align-items:flex-start;flex-direction:column}.blacklistSummary{justify-content:flex-start}.blacklistSearchRow{grid-template-columns:1fr}.blacklistSearchButton{width:100%}.blacklistResultHead{align-items:flex-start;flex-direction:column}.blacklistResultCount{align-self:flex-start}}
+/* Варианты отображения карточки результата (настраиваются в админ-панели, по желанию) */
+.blacklistResultFile.blvariant-compact{border-radius:13px;margin-bottom:8px;}
+.blacklistResultFile.blvariant-compact .blacklistResultHead{padding:8px 11px;}
+.blacklistResultFile.blvariant-compact .blacklistResultFileName{font-size:12px;}
+.blacklistResultFile.blvariant-compact .blacklistResultCount{font-size:9px;padding:4px 8px;}
+.blacklistResultFile.blvariant-compact .blacklistMatch{padding:8px 11px;font-size:11px;}
+.blacklistResultFile.blvariant-compact .blacklistContextText{font-size:11px;}
+.blacklistResultFile.blvariant-compact .blacklistHitText{font-size:200%;padding:2px 6px;border-radius:8px;}
+.blacklistResultFile.blvariant-compact .blacklistMatchIndex{min-width:20px;height:20px;font-size:9px;}
+.blacklistResultFile.blvariant-detailed{border-radius:24px;box-shadow:0 14px 36px rgba(47,22,73,.12);margin-bottom:18px;}
+.blacklistResultFile.blvariant-detailed .blacklistResultHead{padding:18px 20px;}
+.blacklistResultFile.blvariant-detailed .blacklistResultFileName{font-size:16px;}
+.blacklistResultFile.blvariant-detailed .blacklistMatch{padding:17px 20px;font-size:15px;line-height:1.7;}
+.blacklistResultFile.blvariant-detailed .blacklistContextText{font-size:15px;line-height:1.7;}
+.blacklistResultFile.blvariant-accent{border-left:5px solid #7c3aed;box-shadow:0 10px 26px rgba(124,58,237,.14);}
+.blacklistResultFile.blvariant-accent .blacklistHitText{box-shadow:0 0 0 3px rgba(124,58,237,.14);}
+.blacklistResultFile.blvariant-accent .blacklistMatchIndex{background:#7c3aed;color:#fff;}
+html[data-theme="dark"] .blacklistResultFile.blvariant-accent{border-left-color:#a855f7;}
+html[data-theme="dark"] .blacklistResultFile.blvariant-accent .blacklistMatchIndex{background:#a855f7;color:#1b1527;}
+/* Расположение совпадения "отдельно над карточкой" (по желанию администратора) */
+.blacklistMatchAboveWrap{display:flex;flex-direction:column;gap:8px;}
+.blacklistMatchAboveBadges{display:flex;flex-wrap:wrap;gap:6px;}
+.blacklistHitTextAbove{display:inline-block;}
+.blacklistContextTextBelow{display:block;}
+@media(max-width:700px){.blacklistFullScreenCard{padding:14px 12px calc(16px + env(safe-area-inset-bottom))!important}.blacklistHero{padding:12px;border-radius:18px}.blacklistResultHead{align-items:flex-start;flex-direction:column}.blacklistResultCount{align-self:flex-start}}
+@media(max-width:360px){.blacklistStatLabel{font-size:8.5px}.blacklistStatValue{font-size:12.5px}.blacklistHeroIconWrap{width:38px;height:38px;font-size:17px}}
 html[data-theme="dark"] .blacklistFullScreenCard{background:linear-gradient(180deg,#11101a 0%,#191327 100%)!important;color:#fff;}
 html[data-theme="dark"] .blacklistHero{background:linear-gradient(135deg,#211833,#17121f);border-color:#4b3670}
 html[data-theme="dark"] .blacklistHeroTitle{color:#f3e8ff;}
 html[data-theme="dark"] .blacklistHeroSub{color:#c4b5fd}
 html[data-theme="dark"] .blacklistStat{background:#211833;border-color:#4b3670;color:#ddd6fe}
+html[data-theme="dark"] .blacklistStatLabel{color:#a996c4}
+html[data-theme="dark"] .blacklistStatValue{color:#f3e8ff}
+html[data-theme="dark"] .blacklistStatIcon{background:#2c2245}
+html[data-theme="dark"] .blacklistStatSync .blacklistStatIcon{background:#1e2b45}
+html[data-theme="dark"] .blacklistStatFiles .blacklistStatIcon{background:#3a1e22}
+html[data-theme="dark"] .blacklistStatMatches .blacklistStatIcon{background:#2c2245}
 html[data-theme="dark"] .blacklistSearchBox{background:linear-gradient(180deg,#191327 75%,rgba(25,19,39,0))}
 html[data-theme="dark"] .blacklistSearchInput{background:#211833!important;border-color:#4b3670!important;color:#fff!important}
 html[data-theme="dark"] .blacklistResultFile{background:#18131f;border-color:#4b3670}
@@ -1374,8 +1441,18 @@ html[data-theme-id="purple-compact"] .settingsFolderHeader{border-radius:17px!im
 <div class="modalOverlay" id="blacklistModal">
 <div class="modalCard blacklistFullScreenCard">
 <button class="modalClose" id="blacklistCloseBtn" style="position:absolute;right:18px;top:16px;z-index:5">✕</button>
-<div class="blacklistHero"><div><div class="blacklistHeroTitle">🚫 Чёрный список</div><div class="blacklistHeroSub">Проверка по всей загруженной базе TXT / HTML</div></div><div class="blacklistSummary"><span class="blacklistStat" id="blacklistDbDate">📅 Обновлено: —</span><span class="blacklistStat" id="blacklistFileCount">📚 Файлов: 0</span><span class="blacklistStat" id="blacklistMatchCount">🔎 Совпадений: 0</span></div></div>
-<div class="blacklistBody"><div id="blacklistFilesSyncHint" class="settingsBackupHint" style="margin:0 0 8px">📚 Синхронизация базы…</div><div class="blacklistSearchBox"><div class="blacklistSearchRow"><input id="blacklistSearchInput" class="blacklistSearchInput" placeholder="Фамилия, имя, отчество или номер телефона" autocomplete="off"><button type="button" class="b1 blacklistSearchButton" id="blacklistSearchBtn">🔍 Найти все совпадения</button></div></div><div id="blacklistResults" style="margin-top:8px;"></div></div>
+<div class="blacklistHero">
+<div class="blacklistHeroTop">
+<div class="blacklistHeroIconWrap">🚫</div>
+<div class="blacklistHeroTextWrap"><div class="blacklistHeroTitle">Чёрный список</div><div class="blacklistHeroSub" id="blacklistDbDate">📅 База обновлена —</div></div>
+</div>
+<div class="blacklistSummary">
+<div class="blacklistStat blacklistStatSync"><span class="blacklistStatIcon">🔄</span><span class="blacklistStatLabel">Обновлено</span></div>
+<div class="blacklistStat blacklistStatFiles"><span class="blacklistStatIcon">📚</span><span class="blacklistStatLabel">Файлов</span><span class="blacklistStatValue" id="blacklistFileCount">0</span></div>
+<div class="blacklistStat blacklistStatMatches"><span class="blacklistStatIcon">🔎</span><span class="blacklistStatLabel">Совпадений</span><span class="blacklistStatValue" id="blacklistMatchCount">0</span></div>
+</div>
+</div>
+<div class="blacklistBody"><div id="blacklistFilesSyncHint" class="settingsBackupHint" style="margin:0 0 8px">📚 Синхронизация базы…</div><div class="blacklistSearchBox"><div class="blacklistSearchRow"><input id="blacklistSearchInput" class="blacklistSearchInput" placeholder="Фамилия, имя, отчество или номер телефона" autocomplete="off"><button type="button" class="blacklistSearchButton" id="blacklistSearchBtn" title="Найти"><span>🔍</span></button></div></div><div id="blacklistResults" style="margin-top:8px;"></div></div>
 </div>
 </div>
 
@@ -1471,6 +1548,7 @@ html[data-theme-id="purple-compact"] .settingsFolderHeader{border-radius:17px!im
 <div class="uiStyleRow">
 <button type="button" class="uiStyleOpt" id="uiStyleStandard" data-ui-style="standard"><div class="uiStylePreview standardPreview"><span></span><i></i><b></b></div><div class="uiStyleName">Стандартный</div><div class="uiStyleDesc">Текущий интерфейс</div></button>
 <button type="button" class="uiStyleOpt" id="uiStyleNew" data-ui-style="new"><div class="uiStylePreview newPreview"><span></span><i></i><b></b></div><div class="uiStyleName">Новый</div><div class="uiStyleDesc">Премиальный стиль</div></button>
+<button type="button" class="uiStyleOpt" id="uiStyleAI" data-ui-style="ai"><div class="uiStylePreview aiPreview"><span></span><i></i><b></b></div><div class="uiStyleName">ИИ</div><div class="uiStyleDesc">Умный дизайн</div></button>
 </div>
 </div>
 </div>
@@ -1856,10 +1934,9 @@ html[data-theme-id="purple-compact"] .settingsFolderHeader{border-radius:17px!im
 <div class="page2Panel active" id="page2PanelFleet" data-panel="fleet">
 <input type="file" id="carPhotoFileInput" accept="image/*" style="display:none;">
 <div class="fleetViewSwitch" id="fleetViewSwitch">
+<button type="button" class="fleetViewOpt active" data-view="current" title="Стандарт">☰ Стандарт</button>
 <button type="button" class="fleetViewOpt" data-view="grid" title="Плитка">▦ Плитка</button>
-<button type="button" class="fleetViewOpt" data-view="list" title="Компактный">☷ Компакт</button>
-<button type="button" class="fleetViewOpt active" data-view="current" title="Классический">▣ Классика</button>
-<button type="button" class="fleetViewOpt" data-view="premium" title="Премиум">✦ Премиум</button>
+<button type="button" class="fleetViewOpt" data-view="premium" title="Большой">◆ Большой</button>
 </div>
 <div class="carEditHintOnce" id="fleetHoldHint">💡 Удерживайте карточку автомобиля 1,5 сек, чтобы изменить имя, цену и логотип</div>
 <div class="carListWrap" id="carManageList"></div>
@@ -1882,10 +1959,9 @@ html[data-theme-id="purple-compact"] .settingsFolderHeader{border-radius:17px!im
 <div class="cardViewMenuCard">
 <div class="cardViewMenuTitle">Вид автопарка</div>
 <div class="cardViewMenuGrid">
+<button type="button" class="cardViewMenuBtn active" data-fleetview="current"><span>☰</span>Стандарт</button>
 <button type="button" class="cardViewMenuBtn" data-fleetview="grid"><span>▦</span>Плитка</button>
-<button type="button" class="cardViewMenuBtn" data-fleetview="list"><span>☷</span>Компакт</button>
-<button type="button" class="cardViewMenuBtn active" data-fleetview="current"><span>▣</span>Классика</button>
-<button type="button" class="cardViewMenuBtn" data-fleetview="premium"><span>✦</span>Премиум</button>
+<button type="button" class="cardViewMenuBtn" data-fleetview="premium"><span>◆</span>Большой</button>
 </div>
 </div>
 </div>
@@ -2155,8 +2231,8 @@ showNavArrows:parsed.showNavArrows!==false,
 subscriptionUntil:typeof parsed.subscriptionUntil==="number"&&parsed.subscriptionUntil>0?parsed.subscriptionUntil:(Date.now()+SUBSCRIPTION_DEFAULT_DAYS*86400000),
 autoSyncEnabled:parsed.autoSyncEnabled!==false,
 autoSyncIntervalSec:Math.min(59,Math.max(1,parseInt(parsed.autoSyncIntervalSec,10)||30)),
-fleetViewStyle:(parsed.fleetViewStyle==="tile"?"grid":parsed.fleetViewStyle==="compact"?"list":parsed.fleetViewStyle==="list"?"current":["grid","list","current","premium"].includes(parsed.fleetViewStyle)?parsed.fleetViewStyle:"current"),
-uiStyle:parsed.uiStyle==="new"?"new":"standard",
+fleetViewStyle:(parsed.fleetViewStyle==="tile"?"grid":(parsed.fleetViewStyle==="compact"||parsed.fleetViewStyle==="list")?"current":["grid","current","premium"].includes(parsed.fleetViewStyle)?parsed.fleetViewStyle:"current"),
+uiStyle:(parsed.uiStyle==="new"||parsed.uiStyle==="ai")?parsed.uiStyle:"standard",
 edgeSize:["current","medium","large","max"].includes(parsed.edgeSize)?parsed.edgeSize:"large"
 };
 }catch(e){return defaultSettings();}
@@ -2200,7 +2276,7 @@ const old=document.getElementById("xcarCustomThemeStyle"); if(old) old.remove();
 if(active && active.accent){const st=document.createElement("style");st.id="xcarCustomThemeStyle";const a=active.accent;st.textContent=`.themeManagerCurrent,.themeManagerSelect.active{border-color:${a}!important}.themeManagerCurrent{background:${a}18!important;color:${a}!important}.themeManagerSelect.active{color:${a}!important}.themeOpt.active{border-color:${a}!important}`;document.head.appendChild(st);}
 }
 function applyUIStyle(){
-document.documentElement.setAttribute("data-ui-style",settings.uiStyle==="new"?"new":"standard");
+document.documentElement.setAttribute("data-ui-style",(settings.uiStyle==="new"||settings.uiStyle==="ai")?settings.uiStyle:"standard");
 }
 function applyEdgeSize(){
 const root=document.documentElement;
@@ -2285,7 +2361,7 @@ const wrap=document.getElementById("carManageList");
 wrap.innerHTML="";
 updatePage2Subtitle();
 const view=settings.fleetViewStyle||"current";
-const style=view==="grid"?"tile":view==="list"?"compact":view==="premium"?"premium":"list";
+const style=view==="grid"?"tile":view==="premium"?"premium":"list";
 wrap.classList.toggle("viewTile",view==="grid");
 wrap.classList.toggle("viewPremium",view==="premium");
 const holdHint=document.getElementById("fleetHoldHint");
@@ -2298,6 +2374,7 @@ return;
 cars.forEach((c,i)=>{
 const card=document.createElement("div");
 const safeName=c.name.replace(/"/g,"&quot;");
+const statusKey=c.rented?"rented":c.reserved?"reserved":"free";
 const sinceText=(c.rented&&c.rentedSince)?`<div class="carRentSince">🕓 с ${fmtDateTime(new Date(c.rentedSince))}`+
 (c.rentedUntil?` · 🏁 до ${fmtDateTime(new Date(c.rentedUntil))}`:"")+
 (c.rentedPaid?` · внесено ${space(c.rentedPaid)} ₽`:"")+
@@ -2308,27 +2385,20 @@ const rentSwitchHtml=`<label class="rentSwitch"><input type="checkbox" class="ca
 `</label>`;
 if(style==="tile"){
 card.className="carManageCard styleTile";
-card.innerHTML=carPhotoAvatarHtml(c,i)+
+card.innerHTML=`<div class="tileVisual">${carPhotoAvatarHtml(c,i)}<div class="tileShade"></div></div>`+
+`<button type="button" class="carDeleteBtn" title="Удалить">🗑️</button>`+
+`<div class="tileBody">`+
 `<input class="carEditName carTileName" value="${safeName}">`+
 `<input class="carEditPrice carTilePrice" inputmode="numeric" value="${space(c.price)}">`+
-`<button type="button" class="carDeleteBtn" title="Удалить">🗑️</button>`+
-rentSwitchHtml+
-sinceText;
-}else if(style==="compact"){
-card.className="carManageCard styleCompact";
-card.innerHTML=carPhotoAvatarHtml(c,i)+
-`<div class="carCompactInfo">`+
-`<input class="carEditName carCompactName" value="${safeName}">`+
-`<input class="carEditPrice carCompactPrice" inputmode="numeric" value="${space(c.price)}">`+
 `</div>`+
 rentSwitchHtml+
-`<button type="button" class="carDeleteBtn" title="Удалить">🗑️</button>`+
 sinceText;
 }else if(style==="premium"){
 card.className="carManageCard stylePremium";
-card.innerHTML=`<div class="premiumVisual">${carPhotoAvatarHtml(c,i)}<div class="premiumShade"></div><div class="premiumTopBadge">${c.rented?"В АРЕНДЕ":c.reserved?"БРОНЬ":"СВОБОДНО"}</div><button type="button" class="carDeleteBtn" title="Удалить">🗑️</button></div>`+
+const badgeClass=statusKey==="rented"?"badgeRented":statusKey==="reserved"?"badgeReserved":"badgeFree";
+card.innerHTML=`<div class="premiumVisual">${carPhotoAvatarHtml(c,i)}<div class="premiumShade"></div><div class="premiumTopBadge ${badgeClass}">${statusKey==="rented"?"В АРЕНДЕ":statusKey==="reserved"?"БРОНЬ":"СВОБОДНО"}</div><button type="button" class="carDeleteBtn" title="Удалить">🗑️</button></div>`+
 `<div class="premiumBody"><div class="premiumTitleRow"><input class="carEditName carPremiumName" value="${safeName}"><span class="premiumPrice"><input class="carEditPrice carPremiumPrice" inputmode="numeric" value="${space(c.price)}"> <small>₽/сутки</small></span></div>`+
-`<div class="premiumMeta"><span>${c.rented?"🔑 Машина сейчас в аренде":"● Машина свободна"}</span>${c.rented&&c.rentedSince?`<span>🕓 ${fmtDateTime(new Date(c.rentedSince))}</span>`:""}</div>`+
+`<div class="premiumMeta">${c.rented?"<span>🔑 Машина сейчас в аренде</span>":""}</div>`+
 rentSwitchHtml+sinceText+`</div>`;
 }else{
 card.className="carManageCard styleList";
@@ -2367,11 +2437,16 @@ openCompleteRentModal(i);
 renderCarManageList();
 }
 });
-card.querySelector(".carPhotoBtn").addEventListener("click",()=>{
+const openCarPhotoPicker=()=>{
 carPhotoTargetIdx=i;
 const fileInput=document.getElementById("carPhotoFileInput");
 if(fileInput) fileInput.click();
-});
+};
+card.querySelector(".carPhotoBtn").addEventListener("click",openCarPhotoPicker);
+if(style==="list"){
+const avatarEl=card.querySelector(".carPhotoAvatar");
+if(avatarEl) avatarEl.addEventListener("click",openCarPhotoPicker);
+}
 card.querySelector(".carDeleteBtn").addEventListener("click",()=>{
 showConfirm({
 title:"Удалить автомобиль?",
@@ -2392,11 +2467,15 @@ updateCarPickerLabel();
 const statusRow=document.createElement("div");
 statusRow.className="carStatusRow";
 const status=document.createElement("span");
-const statusKey=c.rented?"rented":c.reserved?"reserved":"free";
 status.className="carStatusBadge "+(statusKey==="rented"?"carStatusRented":statusKey==="reserved"?"carStatusReserved":"carStatusFree");
 status.innerHTML=`<span class="carStatusDot"></span>${statusKey==="rented"?"В АРЕНДЕ":statusKey==="reserved"?"БРОН":"СВОБОДНО"}`;
 statusRow.appendChild(status);
+if(style==="tile"){
+const tileVisualEl=card.querySelector(".tileVisual");
+if(tileVisualEl) tileVisualEl.appendChild(statusRow); else card.appendChild(statusRow);
+}else{
 card.appendChild(statusRow);
+}
 // подсказку про удержание карточки показываем один раз над списком (см. #fleetHoldHint),
 // а не на каждой карточке — раньше строка повторялась под каждым авто и на "Плитке"
 // пересекалась с соседними карточками из-за фиксированной высоты сетки
@@ -3934,15 +4013,15 @@ vibrate(12);
 
 // ---------- новый / стандартный дизайн ----------
 function renderUIStyle(){
-const mode=settings.uiStyle==="new"?"new":"standard";
+const mode=(settings.uiStyle==="new"||settings.uiStyle==="ai")?settings.uiStyle:"standard";
 document.querySelectorAll(".uiStyleOpt").forEach(btn=>btn.classList.toggle("active",btn.dataset.uiStyle===mode));
 const hint=document.getElementById("designFolderHint");
-if(hint) hint.textContent=mode==="new"?"Новый премиальный":"Стандартный";
+if(hint) hint.textContent=mode==="new"?"Новый премиальный":(mode==="ai"?"ИИ — умный дизайн":"Стандартный");
 applyUIStyle();
 }
 document.querySelectorAll(".uiStyleOpt").forEach(btn=>{
 btn.addEventListener("click",()=>{
-settings.uiStyle=btn.dataset.uiStyle==="new"?"new":"standard";
+settings.uiStyle=(btn.dataset.uiStyle==="new"||btn.dataset.uiStyle==="ai")?btn.dataset.uiStyle:"standard";
 saveSettings();
 renderUIStyle();
 // мягкая перерисовка интерфейса без потери данных
@@ -4086,10 +4165,10 @@ settings.activeServerProfileId=typeof parsed.settings.activeServerProfileId==="s
 // устройству/аккаунту, а не к резервной копии данных)
 if(typeof parsed.settings.theme==="string") settings.theme=parsed.settings.theme==="dark"?"dark":"light";
 if(typeof parsed.settings.showNavArrows==="boolean") settings.showNavArrows=parsed.settings.showNavArrows;
-if(parsed.settings.uiStyle==="new"||parsed.settings.uiStyle==="standard") settings.uiStyle=parsed.settings.uiStyle;
+if(parsed.settings.uiStyle==="new"||parsed.settings.uiStyle==="standard"||parsed.settings.uiStyle==="ai") settings.uiStyle=parsed.settings.uiStyle;
 if(typeof parsed.settings.autoSyncEnabled==="boolean") settings.autoSyncEnabled=parsed.settings.autoSyncEnabled;
 if(parsed.settings.autoSyncIntervalSec) settings.autoSyncIntervalSec=Math.min(59,Math.max(1,parseInt(parsed.settings.autoSyncIntervalSec,10)||30));
-if(parsed.settings.fleetViewStyle==="tile") settings.fleetViewStyle="grid"; else if(parsed.settings.fleetViewStyle==="compact") settings.fleetViewStyle="list"; else if(parsed.settings.fleetViewStyle==="list") settings.fleetViewStyle="current"; else if(["grid","list","current","premium"].includes(parsed.settings.fleetViewStyle)) settings.fleetViewStyle=parsed.settings.fleetViewStyle;
+if(parsed.settings.fleetViewStyle==="tile") settings.fleetViewStyle="grid"; else if(parsed.settings.fleetViewStyle==="compact"||parsed.settings.fleetViewStyle==="list") settings.fleetViewStyle="current"; else if(["grid","current","premium"].includes(parsed.settings.fleetViewStyle)) settings.fleetViewStyle=parsed.settings.fleetViewStyle;
 }
 selectedCarIdx=null;
 saveCars();
@@ -5431,37 +5510,148 @@ vibrate([40,40,40]);
 // ==================== ЧЁРНЫЙ СПИСОК ====================
 
 function decodeBlacklistBase64(data){try{return decodeURIComponent(escape(atob(String(data||''))))}catch(e){try{return atob(String(data||''))}catch(e2){return ''}}}
+function cleanBlacklistText(raw,mime){
+ let t=String(raw||'');
+ if(/html/i.test(mime||'')||/\.html?$/i.test('x.'+(mime||''))){
+  // как и на сервере: границы записей HTML (строка таблицы, абзац, <br>, пункт списка)
+  // превращаем в перенос строки ДО удаления остальных тегов — иначе все записи склеятся
+  // в одну строку без \n и подсветка совпадения в оффлайн-режиме не сможет остановиться
+  // на границе своей записи (и визуально "не покажет" совпадение)
+  t=t.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ')
+     .replace(/<\s*(br\s*\/?|\/tr|\/p|\/div|\/li|\/h[1-6]|\/td|\/table|\/ul|\/ol)\s*>/gi,'\n')
+     .replace(/<[^>]+>/g,' ');
+ }
+ return t.replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\r/g,'');
+}
 async function syncBlacklistFiles(){
  const base=(settings.account.serverUrl||'').trim().replace(/\/+$/,''); const hint=document.getElementById('blacklistFilesSyncHint');
  if(!base){if(hint)hint.textContent='⚠️ Сервер не настроен';return;}
- try{const r=await fetch(base+'/api/public/blacklist/files',{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();const files=(d.files||[]).map(f=>({...f,text:decodeBlacklistBase64(f.data)}));localStorage.setItem('xcar_blacklist_files',JSON.stringify(files));localStorage.setItem('xcar_blacklist_sync_at',String(Date.now()));if(hint)hint.textContent=`📚 Получено файлов: ${files.length} · синхронизировано автоматически`;const fc=document.getElementById('blacklistFileCount');if(fc)fc.textContent=`📚 Файлов: ${files.length}`;}catch(e){const cached=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');if(hint)hint.textContent=cached.length?`📚 Офлайн-база: ${cached.length} файлов`:'⚠️ Не удалось получить базу';}
+ try{const r=await fetch(base+'/api/public/blacklist/files',{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();const files=(d.files||[]).map(f=>({...f,text:cleanBlacklistText(decodeBlacklistBase64(f.data),f.mime)}));localStorage.setItem('xcar_blacklist_files',JSON.stringify(files));localStorage.setItem('xcar_blacklist_sync_at',String(Date.now()));if(hint)hint.textContent=`📚 Получено файлов: ${files.length} · синхронизировано автоматически`;const fc=document.getElementById('blacklistFileCount');if(fc)fc.textContent=String(files.length);}catch(e){const cached=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');if(hint)hint.textContent=cached.length?`📚 Офлайн-база: ${cached.length} файлов`:'⚠️ Не удалось получить базу';}
 }
 function escapeRegExp(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+const BLACKLIST_HL_KEY='xcar_blacklist_highlight';
+const DEFAULT_BLACKLIST_HL={
+ color:'#7f1d1d',bg:'#fecaca',sizePercent:150,before:0,afterMode:'line',afterChars:200,
+ boundaryMode:'text',startText:'',endText:'',
+ cardVariantEnabled:true,cardVariant:'standard',
+ cardBorderColor:'#e4d9f4',cardBorderWidth:1,cardCorner:'rounded',
+ matchPosition:'above',contextColor:'#7f1d1d',contextBg:''
+};
+function getCachedBlacklistHighlight(){
+ try{const raw=JSON.parse(localStorage.getItem(BLACKLIST_HL_KEY)||'null');return {...DEFAULT_BLACKLIST_HL,...(raw&&typeof raw==='object'?raw:{})};}
+ catch(e){return {...DEFAULT_BLACKLIST_HL};}
+}
+// вычисляет границы фрагмента вокруг совпадения — зеркало серверной computeSnippetWindow(),
+// чтобы офлайн-поиск в приложении давал тот же результат, что и поиск через сервер
+function computeSnippetWindowLocal(original,hitIdx,hl){
+ const before=Math.max(0,Number(hl.before)||0);
+ const afterMode=hl.afterMode==='chars'?'chars':'line';
+ const afterChars=Math.max(10,Number(hl.afterChars)||200);
+ let start=Math.max(0,hitIdx-before);
+ let end=(afterMode==='chars')?Math.min(original.length,hitIdx+afterChars):(()=>{let e=original.indexOf('\n',hitIdx);return e<0?original.length:e;})();
+ if(hl.boundaryMode==='text'){
+  const lowerOriginal=original.toLowerCase();
+  if(hl.startText){const needle=String(hl.startText).toLowerCase();const pos=lowerOriginal.lastIndexOf(needle,hitIdx);if(pos>=0)start=pos+String(hl.startText).length;}
+  if(hl.endText){const needle=String(hl.endText).toLowerCase();const pos=lowerOriginal.indexOf(needle,hitIdx);if(pos>=0)end=pos+String(hl.endText).length;}
+ }
+ if(end<start)end=start;
+ return {start,end};
+}
+function blacklistCardVariantClass(){
+ const hl=getCachedBlacklistHighlight();
+ if(!hl.cardVariantEnabled)return '';
+ const v=['standard','compact','detailed','accent'].includes(hl.cardVariant)?hl.cardVariant:'standard';
+ return v==='standard'?'':(' blvariant-'+v);
+}
+// доп. настройки карточки результата (обводка/углы/фон остального текста) — настраиваются
+// администратором и применяются как инлайн-стиль поверх варианта карточки
+function blacklistCardInlineStyle(){
+ const hl=getCachedBlacklistHighlight();
+ if(!hl.cardVariantEnabled)return '';
+ const w=Math.max(0,Math.min(10,Number(hl.cardBorderWidth)));
+ const width=Number.isFinite(w)?w:1;
+ const radius=hl.cardCorner==='sharp'?'6px':'20px';
+ const color=hl.cardBorderColor||'#e4d9f4';
+ const bg=hl.contextBg?`background:${hl.contextBg};`:'';
+ return ` style="border-color:${color};border-width:${width}px;border-style:solid;border-radius:${radius};${bg}"`;
+}
+// ---------- принудительное обновление по команде администратора ("Обновить все приложения
+// пользователей" в шапке админ-панели) — приложение периодически проверяет метку времени и,
+// увидев более новую, очищает кэш и перезагружается сама (как удержание "Обновить приложение")
+const APP_FORCE_UPDATE_KEY='xcar_app_force_update_ts';
+async function checkForceUpdate(){
+ const base=(settings.account.serverUrl||'').trim().replace(/\/+$/,'');
+ if(!base)return;
+ try{
+  const r=await fetch(base+'/api/public/force-update',{cache:'no-store'});
+  if(!r.ok)return;
+  const d=await r.json();
+  const serverTs=Number(d.ts||0);
+  if(!serverTs)return;
+  const stored=localStorage.getItem(APP_FORCE_UPDATE_KEY);
+  if(stored===null){
+   // первая проверка в этом приложении — просто запоминаем текущее значение сервера,
+   // чтобы не запускать обновление сразу при первом же запуске
+   localStorage.setItem(APP_FORCE_UPDATE_KEY,String(serverTs));
+   return;
+  }
+  const localTs=Number(stored)||0;
+  if(serverTs>localTs){
+   localStorage.setItem(APP_FORCE_UPDATE_KEY,String(serverTs));
+   startAppUpdate();
+  }
+ }catch(e){}
+}
+setInterval(checkForceUpdate,25000);
+setTimeout(checkForceUpdate,4000);
+async function syncBlacklistHighlight(){
+ const base=(settings.account.serverUrl||'').trim().replace(/\/+$/,'');
+ if(!base)return;
+ try{const r=await fetch(base+'/api/public/blacklist/highlight',{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();if(d&&d.highlight)localStorage.setItem(BLACKLIST_HL_KEY,JSON.stringify(d.highlight));}catch(e){}
+}
 function highlightBlacklistSnippet(snippet,q){
  const raw=String(snippet||"");
+ const hl=getCachedBlacklistHighlight();
  const terms=[String(q||""),...String(q||"").split(/\s+/).filter(Boolean)].map(x=>x.trim()).filter(Boolean).sort((a,b)=>b.length-a.length);
  const uniq=[];for(const t of terms){if(!uniq.some(x=>x.toLowerCase()===t.toLowerCase()))uniq.push(t);}
- if(!uniq.length)return `<span class="blacklistContextText">${escapeHtml(raw)}</span>`;
+ const hitStyle=`color:${hl.color};background:${hl.bg};font-size:${Number(hl.sizePercent)||150}%;`;
+ // цвет/фон остального (не выделенного) текста — настраивается администратором, по желанию
+ const contextStyle=(hl.cardVariantEnabled&&hl.contextColor?`color:${hl.contextColor};`:'');
+ if(!uniq.length)return `<span class="blacklistContextText" style="${contextStyle}">${escapeHtml(raw)}</span>`;
+ const useAbove=hl.cardVariantEnabled&&hl.matchPosition==='above';
+ if(useAbove){
+  // совпадение показывается отдельной строкой НАД остальным текстом карточки, а не внутри него
+  const re=new RegExp(uniq.map(escapeRegExp).join('|'),'gi');
+  const foundTexts=[];let m;
+  while((m=re.exec(raw))!==null){
+   if(!foundTexts.some(x=>x.toLowerCase()===m[0].toLowerCase()))foundTexts.push(m[0]);
+   if(m[0].length===0)re.lastIndex++;
+  }
+  const badges=foundTexts.map(t=>`<span class="blacklistHitText blacklistHitTextAbove" style="${hitStyle}">${escapeHtml(t)}</span>`).join(' ');
+  return `<div class="blacklistMatchAboveWrap"><div class="blacklistMatchAboveHead"><div class="blacklistMatchAboveBadges">${badges}</div><span class="blacklistMatchPersonIcon">👤</span></div><div class="blacklistContextText blacklistContextTextBelow" style="${contextStyle}"><span class="blacklistContextWarnIcon">⚠️</span><span class="blacklistContextTextInner">${escapeHtml(raw)}</span></div></div>`;
+ }
  const re=new RegExp(uniq.map(escapeRegExp).join('|'),'gi');
  let out='',last=0,m;
  while((m=re.exec(raw))!==null){
-   out+=`<span class="blacklistContextText">${escapeHtml(raw.slice(last,m.index))}</span>`;
-   out+=`<span class="blacklistHitText">${escapeHtml(m[0])}</span>`;
+   out+=`<span class="blacklistContextText" style="${contextStyle}">${escapeHtml(raw.slice(last,m.index))}</span>`;
+   out+=`<span class="blacklistHitText" style="${hitStyle}">${escapeHtml(m[0])}</span>`;
    last=m.index+m[0].length;
    if(m[0].length===0)re.lastIndex++;
  }
- out+=`<span class="blacklistContextText">${escapeHtml(raw.slice(last))}</span>`;
+ out+=`<span class="blacklistContextText" style="${contextStyle}">${escapeHtml(raw.slice(last))}</span>`;
  return out;
 }
-function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const out=[];for(const f of files){
+function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const hl=getCachedBlacklistHighlight();const out=[];for(const f of files){
 // границы записей ищем по исходному тексту с переносами строк (каждая запись обычно — одна
 // строка); раньше все пробелы и переносы склеивались в один пробел, и фрагмент результата
 // "утекал" в следующую, никак не связанную запись базы вместо того чтобы остановиться на своей
 const original=String(f.text||'').replace(/\r/g,''),lower=original.toLowerCase();
 if(!(terms.every(x=>lower.includes(x))||lower.includes(q.toLowerCase())))continue;const needles=lower.includes(q.toLowerCase())?[q.toLowerCase()]:terms;const hits=[];for(const needle of needles){let from=0;while(needle&&from<lower.length){const idx=lower.indexOf(needle,from);if(idx<0)break;hits.push({idx,needle});from=idx+Math.max(1,needle.length);}}hits.sort((a,b)=>a.idx-b.idx);const uniq=[];for(const h of hits){if(uniq.some(x=>Math.abs(x.idx-h.idx)<Math.max(1,h.needle.length*.8)))continue;
-// фрагмент начинается ровно со слова совпадения и заканчивается концом этой же строки/записи
-let lineEnd=original.indexOf('\n',h.idx);if(lineEnd<0)lineEnd=original.length;
-const snippet=original.slice(h.idx,lineEnd).replace(/\s+/g,' ').trim();
+// фрагмент по умолчанию начинается ровно со слова совпадения и заканчивается концом этой же
+// строки/записи; все параметры границ (включая текстовые "начало"/"конец") приходят из
+// настроек админа — computeSnippetWindowLocal зеркалит серверную логику
+const {start,end}=computeSnippetWindowLocal(original,h.idx,hl);
+const snippet=original.slice(start,end).replace(/\s+/g,' ').trim();
 uniq.push({snippet,index:h.idx});}out.push({filename:f.name,matches:uniq,count:uniq.length});}return out;}
 async function refreshBlacklistMeta(){
 const base=(settings.account.serverUrl||"").trim().replace(/\/+$/,"");
@@ -5475,7 +5665,7 @@ const opts={day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"
 const formatted=data.lastUpdatedAt?new Date(data.lastUpdatedAt).toLocaleString("ru-RU",opts):"—";
 const text=data.lastUpdatedAt?("обновлено "+formatted):"пока пусто";
 if(hintEl) hintEl.textContent=text;
-const legacyDate=document.getElementById("blacklistSub");if(legacyDate)legacyDate.textContent=formatted;const dbDate=document.getElementById("blacklistDbDate");if(dbDate)dbDate.textContent=`📅 Обновлено: ${formatted}`;const fc=document.getElementById("blacklistFileCount");if(fc&&Number.isFinite(Number(data.count)))fc.textContent=`📚 Файлов: ${Number(data.count)}`;
+const legacyDate=document.getElementById("blacklistSub");if(legacyDate)legacyDate.textContent=formatted;const dbDate=document.getElementById("blacklistDbDate");if(dbDate)dbDate.textContent=`📅 База обновлена ${formatted}`;const fc=document.getElementById("blacklistFileCount");if(fc&&Number.isFinite(Number(data.count)))fc.textContent=String(Number(data.count));
 }catch(e){
 if(hintEl) hintEl.textContent="недоступно";
 }
@@ -5489,6 +5679,7 @@ if(results) results.innerHTML="";
 document.getElementById("blacklistModal").classList.add("open");
 refreshBlacklistMeta();
 syncBlacklistFiles();
+syncBlacklistHighlight();
 vibrate(8);
 }
 const blacklistOpenBtn=document.getElementById("blacklistOpenBtn");
@@ -5514,12 +5705,12 @@ body:JSON.stringify({query:q})
 });
 if(!resp.ok) throw new Error("HTTP "+resp.status);
 const data=await resp.json();
-if(!data.results||!data.results.length){const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent='🔎 Совпадений: 0';results.innerHTML=`<div class="blacklistEmpty"><div style="font-size:34px">✓</div><div style="font-size:17px;font-weight:900;margin-top:6px">Совпадений не найдено</div><div style="margin-top:5px">По всей базе нет записей по запросу «${escapeHtml(q)}»</div></div>`;vibrate(12);return;}
-const total=(data.results||[]).reduce((n,r)=>n+Number(r.count||r.matches?.length||1),0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=data.results.map(r=>{const matches=Array.isArray(r.matches)&&r.matches.length?r.matches:[{snippet:r.snippet||'',index:0}];return `<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${matches.length} ${matches.length===1?'совпадение':'совпадений'}</div></div>${matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${highlightBlacklistSnippet(m.snippet||'', q)}</div>`).join('')}</div>`;}).join('');
+if(!data.results||!data.results.length){const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent='0';results.innerHTML=`<div class="blacklistEmpty"><div style="font-size:34px">✓</div><div style="font-size:17px;font-weight:900;margin-top:6px">Совпадений не найдено</div><div style="margin-top:5px">По всей базе нет записей по запросу «${escapeHtml(q)}»</div></div>`;vibrate(12);return;}
+const total=(data.results||[]).reduce((n,r)=>n+Number(r.count||r.matches?.length||1),0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=String(total);const cardVariantCls=blacklistCardVariantClass();const cardInlineStyle=blacklistCardInlineStyle();results.innerHTML=data.results.map(r=>{const matches=Array.isArray(r.matches)&&r.matches.length?r.matches:[{snippet:r.snippet||'',index:0}];return `<div class="blacklistResultFile${cardVariantCls}"${cardInlineStyle}>${matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${highlightBlacklistSnippet(m.snippet||'', q)}</div>`).join('')}</div>`;}).join('');
 vibrate([20,30,20]);
 }catch(e){
 const local=localBlacklistSearch(q);
-if(local.length){const total=local.reduce((n,r)=>n+r.count,0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=`🔎 Совпадений: ${total}`;results.innerHTML=local.map(r=>`<div class="blacklistResultFile"><div class="blacklistResultHead"><div class="blacklistResultFileName">📄 ${escapeHtml(r.filename)}</div><div class="blacklistResultCount">${r.count} ${r.count===1?'совпадение':'совпадений'}</div></div>${r.matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${highlightBlacklistSnippet(m.snippet,q)}</div>`).join('')}</div>`).join('');}else{results.innerHTML=`<div class="settingsBackupHint" style="color:#c62828;">Не удалось выполнить проверку — нет соединения с сервером</div>`;}
+if(local.length){const total=local.reduce((n,r)=>n+r.count,0);const mc=document.getElementById('blacklistMatchCount');if(mc)mc.textContent=String(total);const cardVariantCls=blacklistCardVariantClass();const cardInlineStyle=blacklistCardInlineStyle();results.innerHTML=local.map(r=>`<div class="blacklistResultFile${cardVariantCls}"${cardInlineStyle}>${r.matches.map((m,i)=>`<div class="blacklistMatch"><span class="blacklistMatchIndex">${i+1}</span>${highlightBlacklistSnippet(m.snippet,q)}</div>`).join('')}</div>`).join('');}else{results.innerHTML=`<div class="settingsBackupHint" style="color:#c62828;">Не удалось выполнить проверку — нет соединения с сервером</div>`;}
 }
 }
 document.getElementById("blacklistSearchBtn").addEventListener("click",runBlacklistSearch);
@@ -5633,7 +5824,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#8ad2a9;box-sh
 .carPhotoAvatar .carPhotoBtn{background:#fff!important;color:#173b67!important;border:1px solid #dfe6eb!important;box-shadow:0 5px 12px rgba(19,32,45,.12)}
 .carSettingsRow{display:flex;align-items:center;gap:11px}.carNameWrap{min-width:0}.carEditName,.carEditPrice{border-color:transparent!important;background:transparent!important;box-shadow:none!important;padding:4px 6px!important;margin:0!important}.carEditName{font-weight:850!important;color:#142332!important}.carEditPrice{font-weight:800!important;color:#173b67!important}
 .carStatusRow{margin-top:10px;padding-top:10px;border-top:1px solid #edf1f4}.carStatusBadge{font-size:10px;padding:6px 10px;box-shadow:0 2px 6px rgba(0,0,0,.035)}
-.carStatusFree{color:#087b40;background:#eaf8f0;border-color:#c7ead5}.carStatusRented{color:#a34b08;background:#fff2e7;border-color:#ffd9bd}.carStatusReserved{color:#8c6700;background:#fff8df;border-color:#f1df9e}
+.carStatusFree{background:linear-gradient(135deg,#22c55e,#16a34a)}.carStatusRented{background:linear-gradient(135deg,#f97316,#ea580c)}.carStatusReserved{background:linear-gradient(135deg,#eab308,#ca8a04)}
 .rentSwitch{border-top:0;padding:11px 2px 2px;margin-top:6px}.rentSwitchLabel{color:#4d5c6b}.rentSwitchTrack{width:42px;height:24px;background:#dfe5ea;box-shadow:inset 0 1px 2px rgba(0,0,0,.08)}.rentSwitchThumb{width:20px;height:20px;top:2px}.rentSwitch input:checked ~ .rentSwitchTrack{background:linear-gradient(135deg,#20c96c,#119c4f)}.rentSwitch input:checked ~ .rentSwitchTrack .rentSwitchThumb{transform:translateX(18px)}
 .carDeleteBtn{background:#fff0f0!important;color:#c43d45!important;border:1px solid #f5d7d9!important;border-radius:11px!important;width:34px!important;height:34px!important}
 .carManageCard.styleTile{padding:16px 12px 12px}.carManageCard.styleTile .carPhotoAvatar{width:78px;height:78px;border-radius:22px;margin-bottom:11px}.carManageCard.styleTile .carTileName{font-size:15px!important;font-weight:850!important}.carManageCard.styleTile .carTilePrice{font-size:15px!important;color:#173b67!important}.carManageCard.styleTile .carStatusRow{width:100%;justify-content:center}.carManageCard.styleTile .rentSwitch{width:100%;padding-top:10px}
@@ -5937,27 +6128,23 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
   }
 }
 
-/* ===== XCAR TILE — compact, equal-height premium grid ===== */
+/* ===== XCAR TILE (Плитка) — photo-forward 2-column grid, overlay badge/trash ===== */
 .carListWrap.viewTile{
   display:grid!important;
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
   gap:12px!important;
-  align-items:stretch!important;
-  grid-auto-rows:300px!important;
+  align-items:start!important;
+  grid-auto-rows:auto!important;
 }
 .carListWrap.viewTile .carManageCard.styleTile{
   box-sizing:border-box!important;
   width:100%!important;
-  height:300px!important;
-  min-height:300px!important;
-  max-height:300px!important;
-  padding:12px!important;
-  display:grid!important;
-  grid-template-columns:minmax(0,1fr) auto!important;
-  grid-template-rows:70px 36px 30px 22px 1fr 22px!important;
-  align-items:center!important;
-  column-gap:8px!important;
-  row-gap:5px!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  padding:0 0 10px!important;
+  display:flex!important;
+  flex-direction:column!important;
   position:relative!important;
   overflow:hidden!important;
   border-radius:20px!important;
@@ -5972,89 +6159,109 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
   border-color:#d5dfeb!important;
 }
 .carListWrap.viewTile .carManageCard.styleTile:active{transform:scale(.992)!important;}
+.carListWrap.viewTile .tileVisual{
+  position:relative!important;
+  width:100%!important;
+  height:124px!important;
+  flex-shrink:0!important;
+  overflow:hidden!important;
+  background:linear-gradient(135deg,#dce9f7,#edf4fb)!important;
+  margin-bottom:10px!important;
+}
+.carListWrap.viewTile .tileShade{
+  position:absolute!important;inset:0!important;
+  background:linear-gradient(180deg,rgba(4,16,30,0) 45%,rgba(4,16,30,.42) 100%)!important;
+  pointer-events:none!important;
+}
 .carListWrap.viewTile .carPhotoAvatar{
-  grid-column:1 / -1!important;
-  grid-row:1!important;
-  width:70px!important;
-  height:70px!important;
-  margin:0 auto!important;
-  border-radius:18px!important;
+  position:absolute!important;inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  border-radius:0!important;
   background:linear-gradient(145deg,#eef4f8,#e5edf3)!important;
-  border:1px solid #dce5ec!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.9)!important;
+  border:0!important;
+  box-shadow:none!important;
 }
 .carListWrap.viewTile .carPhotoAvatar img{width:100%!important;height:100%!important;object-fit:cover!important;}
-.carListWrap.viewTile .carPhotoAvatar .carPhotoEmoji{font-size:30px!important;}
+.carListWrap.viewTile .carPhotoAvatar .carPhotoEmoji{font-size:36px!important;}
 .carListWrap.viewTile .carPhotoBtn{
-  width:21px!important;height:21px!important;font-size:9px!important;
-  right:-2px!important;bottom:-2px!important;
+  width:26px!important;height:26px!important;font-size:11px!important;
+  right:8px!important;bottom:8px!important;left:auto!important;top:auto!important;
   border:2px solid #fff!important;
+  z-index:2!important;
 }
 .carListWrap.viewTile .carDeleteBtn{
   position:absolute!important;
-  top:10px!important;right:10px!important;
-  width:29px!important;height:29px!important;
+  top:8px!important;right:8px!important;
+  width:28px!important;height:28px!important;
   border-radius:10px!important;
   font-size:11px!important;
-  background:#fff3f3!important;
-  border:1px solid #ffd7d7!important;
-  box-shadow:0 4px 12px rgba(210,70,70,.08)!important;
+  background:rgba(255,255,255,.92)!important;
+  border:1px solid rgba(255,255,255,.6)!important;
+  box-shadow:0 4px 12px rgba(0,0,0,.18)!important;
+  z-index:3!important;
+}
+.carListWrap.viewTile .carStatusRow{
+  position:absolute!important;
+  left:10px!important;bottom:10px!important;
+  top:auto!important;right:auto!important;
+  width:auto!important;
+  margin:0!important;padding:0!important;
+  z-index:2!important;
+}
+.carListWrap.viewTile .carStatusBadge{font-size:9.5px!important;padding:5px 10px!important;}
+.carListWrap.viewTile .tileBody{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:1px!important;
+  padding:0 12px!important;
 }
 .carListWrap.viewTile .carEditName{
-  grid-column:1 / -1!important;
-  grid-row:2!important;
   width:100%!important;
+  flex:none!important;
   min-width:0!important;
   box-sizing:border-box!important;
-  height:36px!important;
+  height:auto!important;
   margin:0!important;
-  padding:0 10px!important;
-  text-align:center!important;
+  padding:2px 0!important;
+  text-align:left!important;
   font-size:14px!important;
-  font-weight:900!important;
+  font-weight:850!important;
   color:#172b43!important;
-  background:#f5f8fb!important;
-  border:1px solid #e8eef4!important;
-  border-radius:11px!important;
-  outline:none!important;
-}
-.carListWrap.viewTile .carEditPrice{
-  grid-column:1 / -1!important;
-  grid-row:3!important;
-  width:100%!important;
-  height:32px!important;
-  box-sizing:border-box!important;
-  margin:0!important;
-  padding:0 8px!important;
-  text-align:center!important;
-  font-size:15px!important;
-  font-weight:900!important;
-  color:#17477d!important;
   background:transparent!important;
   border:0!important;
   outline:none!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+.carListWrap.viewTile .carEditPrice{
+  width:100%!important;
+  flex:none!important;
+  height:auto!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:1px 0 2px!important;
+  text-align:left!important;
+  font-size:13.5px!important;
+  font-weight:900!important;
+  color:#0047ff!important;
+  background:transparent!important;
+  border:0!important;
+  outline:none!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
 }
 .carListWrap.viewTile .carEditPrice::after{content:' ₽/сутки';}
-.carListWrap.viewTile .carStatusRow{
-  grid-column:1 / -1!important;
-  grid-row:4!important;
-  width:100%!important;
-  margin:0!important;
-  padding:0!important;
-  display:flex!important;
-  justify-content:center!important;
-  align-items:center!important;
-}
-.carListWrap.viewTile .carStatusBadge{font-size:9.5px!important;padding:4px 9px!important;}
 .carListWrap.viewTile .rentSwitch{
-  grid-column:1 / -1!important;
-  grid-row:5!important;
   width:100%!important;
   box-sizing:border-box!important;
   margin:0!important;
-  padding:7px 2px!important;
-  border-top:1px solid #edf1f5!important;
-  border-bottom:0!important;
+  padding:8px 12px 0!important;
+  border-top:0!important;
   justify-content:space-between!important;
   gap:8px!important;
   font-size:11px!important;
@@ -6065,15 +6272,13 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
 .carListWrap.viewTile .rentSwitchThumb{width:17px!important;height:17px!important;}
 .carListWrap.viewTile .rentSwitch input:checked ~ .rentSwitchTrack .rentSwitchThumb{transform:translateX(15px)!important;}
 .carListWrap.viewTile .carRentSince{
-  grid-column:1 / -1!important;
-  grid-row:6!important;
   width:100%!important;
   box-sizing:border-box!important;
-  margin:0!important;
-  padding:0 2px!important;
-  text-align:center!important;
-  font-size:9px!important;
-  line-height:16px!important;
+  margin:2px 0 0!important;
+  padding:0 12px!important;
+  text-align:left!important;
+  font-size:9.5px!important;
+  line-height:14px!important;
   color:#8793a1!important;
   white-space:nowrap!important;
   overflow:hidden!important;
@@ -6085,15 +6290,14 @@ html[data-theme="dark"] .carListWrap.viewTile .carManageCard.styleTile{
   border-color:#2b3b50!important;
   box-shadow:0 12px 28px rgba(0,0,0,.24)!important;
 }
-html[data-theme="dark"] .carListWrap.viewTile .carEditName{background:#19283b!important;border-color:#2b3d55!important;color:#f1f5fb!important;}
+html[data-theme="dark"] .carListWrap.viewTile .carEditName{color:#f1f5fb!important;}
 html[data-theme="dark"] .carListWrap.viewTile .carEditPrice{color:#9bc7ff!important;}
-html[data-theme="dark"] .carListWrap.viewTile .rentSwitch{border-top-color:#2a394c!important;color:#91a0b2!important;}
+html[data-theme="dark"] .carListWrap.viewTile .rentSwitch{color:#91a0b2!important;}
 @media(max-width:390px){
-  .carListWrap.viewTile{gap:9px!important;grid-auto-rows:278px!important;}
-  .carListWrap.viewTile .carManageCard.styleTile{height:278px!important;min-height:278px!important;max-height:278px!important;padding:10px!important;grid-template-rows:62px 35px 29px 20px 1fr 20px!important;}
-  .carListWrap.viewTile .carPhotoAvatar{width:62px!important;height:62px!important;border-radius:16px!important;}
-  .carListWrap.viewTile .carEditName{height:34px!important;font-size:13px!important;}
-  .carListWrap.viewTile .carEditPrice{height:29px!important;font-size:14px!important;}
+  .carListWrap.viewTile{gap:9px!important;}
+  .carListWrap.viewTile .tileVisual{height:108px!important;}
+  .carListWrap.viewTile .carEditName{font-size:13.5px!important;}
+  .carListWrap.viewTile .carEditPrice{font-size:12.5px!important;}
 }
 
 /* XCAR: enlarged date/time picker touch targets */
@@ -6131,3 +6335,296 @@ input[type="time"]::-webkit-calendar-picker-indicator{
 @keyframes xcFade{from{opacity:0}to{opacity:1}}@keyframes xcPop{to{transform:translateY(0) scale(1)}}
 html[data-theme="dark"] .xcarBroadcastCard{background:linear-gradient(145deg,#162234,#0f1825);border-color:#2b3a50}.dark .xcarBroadcastCard{background:#162234}.dark .xcarBroadcastTitle{color:#f5f8ff}.dark .xcarBroadcastText{color:#b4c0d0}
 </style>
+<style id="xcar-ai-redesign">
+/* ===== XCAR AI — сгенерированная палитра (сдвиг оттенка премиальной темы) ===== */
+html[data-ui-style="ai"] body{background:radial-gradient(circle at 50% -10%,#eee9f7 0,#f8f5f7 35%,#f1e9ef 100%);}
+html[data-ui-style="ai"] .card{max-width:500px;border-radius:30px;padding:18px 16px 20px;background:rgba(255,255,255,.94);box-shadow:0 28px 80px rgba(59,18,43,.15),0 2px 10px rgba(59,18,43,.05);border:1px solid rgba(255,255,255,.9);}
+html[data-ui-style="ai"] .logo{font-size:30px;letter-spacing:-.7px}
+html[data-ui-style="ai"] .topBar{margin-bottom:14px}
+html[data-ui-style="ai"] .navBtn,html[data-ui-style="ai"] .gearBtn{background:linear-gradient(145deg,#ffffff,#f0edf3);border:1px solid #e6e3eb;box-shadow:0 8px 20px rgba(41,22,56,.08);}
+html[data-ui-style="ai"] input,html[data-ui-style="ai"] select,html[data-ui-style="ai"] .carPickerBtn{background:#f9f7fa;border-color:#e5e2ea;border-radius:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8);transition:border-color .25s var(--xc-ease),box-shadow .25s var(--xc-ease),transform .25s var(--xc-ease);}
+html[data-ui-style="ai"] input:focus,html[data-ui-style="ai"] select:focus{outline:none;border-color:#966adb;box-shadow:0 0 0 4px rgba(89,13,195,.10);}
+html[data-ui-style="ai"] button{border-radius:16px;transition:transform .25s var(--xc-ease),box-shadow .25s var(--xc-ease),filter .25s var(--xc-ease);}
+html[data-ui-style="ai"] button:active{transform:translateY(1px) scale(.985);}
+html[data-ui-style="ai"] .b1{background:linear-gradient(135deg,#4d133c,#3d0b2e);box-shadow:0 10px 24px rgba(65,13,51,.16)}
+html[data-ui-style="ai"] .b7{background:linear-gradient(135deg,#6516d2,#4d04ae);box-shadow:0 10px 24px rgba(77,4,174,.20)}
+html[data-ui-style="ai"] .b3{background:linear-gradient(135deg,#886174,#6a4558);box-shadow:0 10px 24px rgba(106,69,88,.15)}
+html[data-ui-style="ai"] .result{background:linear-gradient(145deg,#f4f2fa,#f1eef6);border:1px solid #e1dbed;box-shadow:0 12px 30px rgba(89,13,195,.07);}
+html[data-ui-style="ai"] .page2Drawer{background:linear-gradient(180deg,#fcfbfd,#f4f1f5);box-shadow:0 -25px 70px rgba(31,16,39,.20);border-top:1px solid rgba(255,255,255,.95)}
+html[data-ui-style="ai"] .page2Header{background:linear-gradient(135deg,#4f1441,#3e0d30);box-shadow:0 10px 30px rgba(62,13,48,.18)}
+html[data-ui-style="ai"] .page2Title{letter-spacing:-.3px}
+html[data-ui-style="ai"] .page2HeaderBtns .page2QuickBtn,html[data-ui-style="ai"] .page2HeaderBtns .notifyBellBtn{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.18);box-shadow:0 6px 18px rgba(0,0,0,.10);}
+html[data-ui-style="ai"] .page2HeaderBtns .carAddTopBtn{background:linear-gradient(135deg,#6e1edc,#4d06ad);box-shadow:0 10px 24px rgba(77,6,173,.32);}
+html[data-ui-style="ai"] .page2Tabs{background:#ede9ef;border:1px solid #e1dce8;padding:4px;border-radius:18px;box-shadow:inset 0 1px 2px rgba(33,18,47,.05)}
+html[data-ui-style="ai"] .page2Tab{border-radius:14px;color:#787081;transition:all .32s var(--xc-ease)}
+html[data-ui-style="ai"] .page2Tab.active{background:#ffffff;color:#410397;box-shadow:0 7px 18px rgba(42,20,61,.10)}
+html[data-ui-style="ai"] .fleetViewSwitch{background:#ede9ef;border:1px solid #e2dee9;border-radius:17px;padding:4px;box-shadow:inset 0 1px 2px rgba(33,18,47,.04)}
+html[data-ui-style="ai"] .fleetViewOpt{border-radius:13px;color:#787081;transition:all .32s var(--xc-ease)}
+html[data-ui-style="ai"] .fleetViewOpt.active{background:#ffffff;color:#4303a0;box-shadow:0 7px 18px rgba(42,20,61,.10)}
+html[data-ui-style="ai"] .carManageCard{border:1px solid #e4e1e9;background:rgba(255,255,255,.96);border-radius:22px;box-shadow:0 12px 30px rgba(37,22,50,.08);transition:transform .35s var(--xc-ease),box-shadow .35s var(--xc-ease),border-color .35s var(--xc-ease);overflow:hidden;}
+html[data-ui-style="ai"] .carManageCard:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(37,22,50,.12);border-color:#d6cee4}
+html[data-ui-style="ai"] .carPhotoAvatar{border-radius:17px;background:linear-gradient(145deg,#f3f1f5,#eae7ee);border-color:#dfdae6;box-shadow:inset 0 1px 0 #ffffff;}
+html[data-ui-style="ai"] .carEditName,html[data-ui-style="ai"] .carEditPrice{background:#f9f7fa;border-color:#e6e4eb;font-weight:800}
+html[data-ui-style="ai"] .rentSwitchTrack{box-shadow:inset 0 2px 5px rgba(0,0,0,.12);transition:background .28s var(--xc-ease),box-shadow .28s var(--xc-ease)}
+html[data-ui-style="ai"] .rentSwitch input:checked + .rentSwitchLabel + .rentSwitchTrack{background:linear-gradient(135deg,#6a19d8,#4d06ae);box-shadow:0 4px 14px rgba(77,6,174,.24)}
+html[data-ui-style="ai"] .rentSwitchThumb{transition:transform .32s var(--xc-ease),box-shadow .32s var(--xc-ease)}
+html[data-ui-style="ai"] .carDeleteBtn{background:#f3fff3;border-color:#d0f3d2;transition:all .25s var(--xc-ease)}
+html[data-ui-style="ai"] .carDeleteBtn:active{background:#e3ffe5}
+html[data-ui-style="ai"] .statusBadge{box-shadow:0 6px 15px rgba(0,0,0,.06);letter-spacing:.2px}
+html[data-ui-style="ai"] .modalOverlay{background:rgba(21,10,27,.42);backdrop-filter:blur(12px)}
+html[data-ui-style="ai"] .modalCard{border-radius:28px;border:1px solid rgba(255,255,255,.9);box-shadow:0 30px 90px rgba(24,11,34,.22);animation:xcModalIn .42s var(--xc-ease)}
+html[data-ui-style="ai"] .settingsFolder{border-radius:20px;border-color:#e3dfea;background:linear-gradient(145deg,#fcfbfd,#f6f4f7);box-shadow:0 7px 20px rgba(38,19,53,.045);}
+html[data-ui-style="ai"] .settingsFolder.open{border-color:#c5b6e8;box-shadow:0 12px 28px rgba(89,13,195,.08)}
+html[data-ui-style="ai"] .settingsFolderIconBadge{background:linear-gradient(135deg,#f0e9fa,#e1d5f6);box-shadow:0 7px 15px rgba(89,13,195,.08)}
+html[data-ui-style="ai"] .cardViewMenuCard{border-radius:28px;background:rgba(255,255,255,.97);box-shadow:0 30px 90px rgba(21,10,32,.24)}
+html[data-ui-style="ai"] .cardViewMenuBtn{border-radius:20px;transition:transform .3s var(--xc-ease),box-shadow .3s var(--xc-ease),border-color .3s var(--xc-ease)}
+html[data-ui-style="ai"] .cardViewMenuBtn.active{background:#f3effb;border-color:#9f7bdd;box-shadow:0 10px 25px rgba(89,13,195,.12)}
+html[data-ui-style="ai"] .carHoldOverlay{background:rgba(243,239,251,.52);backdrop-filter:blur(2px)}
+html[data-ui-style="ai"] .carHoldLabel{background:rgba(35,14,50,.90);box-shadow:0 12px 30px rgba(26,8,42,.25)}
+html[data-ui-style="ai"] .carHoldOverlayFill{background:linear-gradient(90deg,rgba(89,13,195,.10),rgba(89,13,195,.38))!important}
+html[data-ui-style="ai"] .historyItem,html[data-ui-style="ai"] .notifyItem,html[data-ui-style="ai"] .contactItem{border:1px solid #e5e2ea;box-shadow:0 8px 22px rgba(37,20,52,.05);transition:transform .3s var(--xc-ease),box-shadow .3s var(--xc-ease)}
+html[data-ui-style="ai"] .historyItem:active,html[data-ui-style="ai"] .notifyItem:active{transform:scale(.985)}
+html[data-ui-style="ai"] .page2Hint{color:#837b8c}
+html[data-ui-style="ai"] .updateAppBtn{color:#4303a0;border-color:#cabde9}
+html[data-ui-style="ai"] .serverRefreshBtn .serverRefreshIcon{transition:transform .6s var(--xc-ease)}
+html[data-ui-style="ai"] .serverRefreshBtn.busy .serverRefreshIcon{animation:xcSpin .7s linear infinite}
+html[data-ui-style="ai"] .page2QuickBtn:hover,html[data-ui-style="ai"] .notifyBellBtn:hover,html[data-ui-style="ai"] .carAddTopBtn:hover{transform:translateY(-2px)}
+html[data-ui-style="ai"] .carListWrap.viewTile .carManageCard{min-height:250px}
+html[data-ui-style="ai"] .carListWrap.viewTile .carPhotoAvatar{height:116px;width:100%;border-radius:18px}
+html[data-ui-style="ai"] .carListWrap.viewTile .carPhotoAvatar img{width:100%;height:100%;object-fit:cover}
+html[data-ui-style="ai"] .carListWrap.viewTile .carManageCard{padding:12px}
+html[data-ui-style="ai"] .carListWrap.viewTile .carDeleteBtn{top:12px;right:12px}
+html[data-ui-style="ai"] .carListWrap.viewTile .rentSwitch{margin-top:10px}
+html[data-ui-style="ai"] .carListWrap.viewTile .carEditName,html[data-ui-style="ai"] .carListWrap.viewTile .carEditPrice{border-radius:13px}
+html[data-ui-style="ai"] .carListWrap.viewTile .carEditName{font-size:14px;font-weight:900}
+html[data-ui-style="ai"] .carListWrap.viewTile .carEditPrice{font-size:13px}
+html[data-ui-style="ai"] .carListWrap.viewTile .carRentSince{font-size:10px;color:#898192}
+html[data-ui-style="ai"] .carListWrap.viewTile .carStatusRow{margin-top:9px}
+html[data-ui-style="ai"] .page2Panel{animation:xcPanelIn .35s var(--xc-ease)}
+html[data-ui-style="ai"] .page2Panel:not(.active){animation:none}
+html[data-ui-style="ai"] .settingsOpenBtn{border-radius:16px;transition:all .28s var(--xc-ease)}
+html[data-ui-style="ai"] .settingsOpenBtn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(39,20,57,.07)}
+html[data-ui-style="ai"] .uiStyleOpt.active{box-shadow:0 12px 28px rgba(89,13,195,.13)}
+html[data-theme="dark"][data-ui-style="ai"] body{background:radial-gradient(circle at 50% -10%,#231533 0,#180b13 42%,#10070c 100%)}
+html[data-theme="dark"][data-ui-style="ai"] .card{background:rgba(27,12,21,.96);border-color:#2e2537;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+html[data-theme="dark"][data-ui-style="ai"] .topBar:after{background:linear-gradient(90deg,transparent,#342842,transparent)}
+html[data-theme="dark"][data-ui-style="ai"] input,html[data-theme="dark"][data-ui-style="ai"] select,html[data-theme="dark"][data-ui-style="ai"] .carPickerBtn{background:#17101c;border-color:#32293d;color:#ece8f1}
+html[data-theme="dark"][data-ui-style="ai"] .page2Drawer{background:linear-gradient(180deg,#140e18,#0e0911);border-color:#2f253b}
+html[data-theme="dark"][data-ui-style="ai"] .page2Tabs,html[data-theme="dark"][data-ui-style="ai"] .fleetViewSwitch{background:#17101c;border-color:#2f253b}
+html[data-theme="dark"][data-ui-style="ai"] .page2Tab.active,html[data-theme="dark"][data-ui-style="ai"] .fleetViewOpt.active{background:#22192b;color:#986ae9}
+html[data-theme="dark"][data-ui-style="ai"] .carManageCard{background:#160f1b;border-color:#31283c;box-shadow:0 16px 35px rgba(0,0,0,.26)}
+html[data-theme="dark"][data-ui-style="ai"] .carEditName,html[data-theme="dark"][data-ui-style="ai"] .carEditPrice{background:#110d15;border-color:#31283c;color:#eeeaf3}
+html[data-theme="dark"][data-ui-style="ai"] .settingsFolder{background:linear-gradient(145deg,#160f1b,#110d15);border-color:#31283c}
+html[data-theme="dark"][data-ui-style="ai"] .uiStyleOpt{background:#17101c;border-color:#31283c;color:#ece8f1}
+html[data-theme="dark"][data-ui-style="ai"] .standardPreview{background:#1e1622;border-color:#33293a}
+html[data-theme="dark"][data-ui-style="ai"] .newPreview{border-color:#413354}
+/* XCAR HEADER CONTROLS — unified premium design */
+html[data-ui-style="ai"] .page2Header{
+  background:linear-gradient(135deg,#540c35 0%,#650d45 52%,#52105f 100%);
+  padding:calc(24px + env(safe-area-inset-top)) 18px 18px;
+  box-shadow:0 14px 34px rgba(58,5,40,.20);
+}
+html[data-ui-style="ai"] .page2HeaderTop{align-items:center;gap:14px}
+html[data-ui-style="ai"] .page2Title{font-size:22px;font-weight:900;letter-spacing:-.55px;text-shadow:0 2px 12px rgba(0,0,0,.14)}
+html[data-ui-style="ai"] .page2Subtitle{margin-top:3px;font-size:11.5px;font-weight:700;color:rgba(255,255,255,.70)}
+html[data-ui-style="ai"] .page2HeaderBtns{gap:8px;padding:5px;border-radius:18px;background:rgba(40,3,26,.20);border:1px solid rgba(255,255,255,.10);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+html[data-ui-style="ai"] .page2HeaderBtns > button{
+  width:40px;height:40px;min-width:40px;margin:0;border-radius:13px;border:1px solid rgba(255,255,255,.18);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  font-family:inherit;font-weight:900;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,background .28s ease,filter .28s ease;
+}
+html[data-ui-style="ai"] .page2HeaderBtns > button::before{content:"";position:absolute;inset:1px;border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,0));pointer-events:none}
+html[data-ui-style="ai"] .page2HeaderBtns > button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.18);filter:brightness(1.04)}
+html[data-ui-style="ai"] .page2HeaderBtns > button:active{transform:scale(.91);box-shadow:0 4px 10px rgba(0,0,0,.12);filter:brightness(.98)}
+html[data-ui-style="ai"] .page2HeaderBtns .carAddTopBtn{
+  width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#7a2aeb,#5302b7);color:#ffffff;border-color:rgba(255,255,255,.24);
+  font-size:23px;box-shadow:0 8px 20px rgba(83,6,182,.34),inset 0 1px 0 rgba(255,255,255,.25)
+}
+html[data-ui-style="ai"] .page2HeaderBtns .page2QuickBtn,
+html[data-ui-style="ai"] .page2HeaderBtns .notifyBellBtn{
+  background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(247,231,241,.86));color:#4d1537;
+  border-color:rgba(255,255,255,.72);box-shadow:0 7px 18px rgba(40,0,23,.16),inset 0 1px 0 #ffffff;
+  font-size:18px;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .notifyBellBtn{font-size:17px}
+html[data-ui-style="ai"] .page2HeaderBtns .notesTopBtn{background:linear-gradient(145deg,#fcf5fa,#f0dbe9)}
+html[data-ui-style="ai"] .page2HeaderBtns .page2CloseBtn{
+  background:rgba(255,255,255,.11);color:rgba(255,255,255,.92);border-color:rgba(255,255,255,.22);font-size:17px;box-shadow:0 7px 18px rgba(0,0,0,.13)
+}
+html[data-ui-style="ai"] .page2HeaderBtns .serverRefreshBtn.busy{background:linear-gradient(145deg,#ffdff7,#f9c5ed)}
+html[data-ui-style="ai"] .page2HeaderBtns .notesDot{width:7px;height:7px;border-radius:50%;background:#760bd2;box-shadow:0 0 0 3px rgba(118,11,210,.15);position:absolute;top:6px;right:6px}
+html[data-ui-style="ai"] .page2HeaderBtns .notifyBellBadge{box-shadow:0 0 0 2px #56103b,0 3px 8px rgba(0,0,0,.2);top:3px;right:3px}
+html[data-ui-style="ai"] .page2HeaderBtns .serverRefreshIcon{font-size:21px;line-height:1}
+html[data-ui-style="ai"] .page2HeaderBtns .notifyBellIcon{font-size:18px;line-height:1}
+html[data-theme="dark"][data-ui-style="ai"] .page2Header{
+  background:linear-gradient(135deg,#2c091e 0%,#450d32 52%,#3c0d4b 100%);box-shadow:0 16px 40px rgba(0,0,0,.45)
+}
+html[data-theme="dark"][data-ui-style="ai"] .page2HeaderBtns{background:rgba(0,0,0,.25);border-color:rgba(255,255,255,.08)}
+html[data-theme="dark"][data-ui-style="ai"] .page2HeaderBtns .page2QuickBtn,
+html[data-theme="dark"][data-ui-style="ai"] .page2HeaderBtns .notifyBellBtn{background:linear-gradient(145deg,#4c203c,#3d162e);color:#fae8f4;border-color:#663255;box-shadow:0 8px 20px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08)}
+html[data-theme="dark"][data-ui-style="ai"] .page2HeaderBtns .notesTopBtn{background:linear-gradient(145deg,#542744,#421934)}
+html[data-theme="dark"][data-ui-style="ai"] .page2HeaderBtns .page2CloseBtn{background:rgba(255,255,255,.08);color:#f8f0f6;border-color:rgba(255,255,255,.14)}
+/* XCAR — premium unified header controls */
+html[data-ui-style="ai"] .page2HeaderBtns{
+  gap:8px!important;
+  align-items:center!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns > button{
+  width:36px!important;
+  height:36px!important;
+  min-width:36px!important;
+  flex:0 0 36px!important;
+  border-radius:12px!important;
+  border:1px solid rgba(255,255,255,.72)!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(243,223,237,.86))!important;
+  color:#631d4a!important;
+  box-shadow:
+    0 7px 16px rgba(45,2,29,.18),
+    0 1px 2px rgba(45,2,29,.12),
+    inset 0 1px 0 rgba(255,255,255,.95),
+    inset 0 -1px 0 rgba(167,109,148,.12)!important;
+  transform:translateZ(0);
+}
+html[data-ui-style="ai"] .page2HeaderBtns > button::before{
+  inset:1px!important;
+  border-radius:10px!important;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,0) 58%)!important;
+  opacity:.9!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns > button:hover{
+  transform:translateY(-2px) scale(1.055)!important;
+  box-shadow:
+    0 11px 22px rgba(45,2,29,.23),
+    0 2px 4px rgba(45,2,29,.10),
+    inset 0 1px 0 rgba(255,255,255,1)!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns > button:active{
+  transform:translateY(1px) scale(.92)!important;
+  box-shadow:
+    0 3px 7px rgba(45,2,29,.16),
+    inset 0 2px 4px rgba(93,35,76,.14)!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .carAddTopBtn{
+  width:36px!important;height:36px!important;min-width:36px!important;flex-basis:36px!important;
+  border-radius:12px!important;
+  background:linear-gradient(145deg,#792bf4 0%,#5503c3 55%,#4b00a5 100%)!important;
+  color:#ffffff!important;
+  font-size:19px!important;
+  border-color:rgba(255,255,255,.45)!important;
+  box-shadow:
+    0 8px 18px rgba(83,0,192,.30),
+    0 2px 5px rgba(45,0,100,.20),
+    inset 0 1px 0 rgba(255,255,255,.48),
+    inset 0 -2px 4px rgba(41,0,90,.12)!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .carAddTopBtn:hover{
+  box-shadow:
+    0 12px 24px rgba(83,0,192,.36),
+    0 3px 6px rgba(45,0,100,.18),
+    inset 0 1px 0 rgba(255,255,255,.58)!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .page2QuickBtn{
+  background:linear-gradient(145deg,#fffbfd,#f4e3ee)!important;
+  color:#6e1d52!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .notifyBellBtn{
+  background:linear-gradient(145deg,#e9fff6,#baf3dc)!important;
+  color:#15a36a!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .serverRefreshBtn{
+  background:linear-gradient(145deg,#ffeffa,#fcd3ee)!important;
+  color:#941e6c!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .notesTopBtn{
+  background:linear-gradient(145deg,#f2fff9,#d3f2e3)!important;
+  color:#348057!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .page2CloseBtn{
+  background:linear-gradient(145deg,#f8edf5,#ebd4e4)!important;
+  color:#7d4469!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .notifyBellBadge{
+  min-width:14px!important;height:14px!important;line-height:14px!important;
+  font-size:8px!important;padding:0 3px!important;top:-4px!important;right:-4px!important;
+  border:2px solid #581344!important;
+  box-shadow:0 3px 8px rgba(0,0,0,.20)!important;
+}
+html[data-ui-style="ai"] .page2HeaderBtns .notesDot{
+  width:6px!important;height:6px!important;top:3px!important;right:3px!important;
+  border:1.5px solid #ffffff!important;
+}
+html[data-theme="dark"][data-ui-style="ai"] .page2HeaderBtns > button{
+  border-color:rgba(255,255,255,.25)!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+@media(max-width:620px){
+  html[data-ui-style="ai"] .page2HeaderBtns{gap:6px!important}
+  html[data-ui-style="ai"] .page2HeaderBtns > button,
+  html[data-ui-style="ai"] .page2HeaderBtns .carAddTopBtn{
+    width:34px!important;height:34px!important;min-width:34px!important;flex-basis:34px!important;border-radius:11px!important;
+  }
+}
+
+/* ===== XCAR AI — авторские фирменные анимации и фишки ===== */
+@keyframes xcAiGlowPulse{0%,100%{box-shadow:0 10px 24px rgba(101,22,210,.20),0 0 0 0 rgba(140,60,240,.0)}50%{box-shadow:0 14px 32px rgba(101,22,210,.32),0 0 0 8px rgba(140,60,240,.06)}}
+@keyframes xcAiCardGlow{0%,100%{box-shadow:0 28px 80px rgba(59,18,43,.15),0 2px 10px rgba(59,18,43,.05),0 0 0 0 rgba(140,60,240,0)}50%{box-shadow:0 28px 80px rgba(59,18,43,.17),0 2px 10px rgba(59,18,43,.06),0 0 32px 2px rgba(140,60,240,.10)}}
+@keyframes xcAiGradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes xcAiSparkle{0%,100%{opacity:.35;transform:scale(.85) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(12deg)}}
+@keyframes xcAiRing{0%{transform:scale(.92);opacity:.5}70%{opacity:0}100%{transform:scale(1.35);opacity:0}}
+
+html[data-ui-style="ai"] .card{animation:xcAiCardGlow 5.5s ease-in-out infinite;position:relative;}
+html[data-ui-style="ai"] .logo{
+  background:linear-gradient(90deg,#7c1fe0,#c026d3,#7c1fe0);
+  background-size:200% auto;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:xcAiGradientShift 4.5s ease-in-out infinite;
+  position:relative;
+}
+html[data-ui-style="ai"] .logo::after{
+  content:"✨";position:absolute;right:-18px;top:-4px;font-size:13px;
+  animation:xcAiSparkle 2.4s ease-in-out infinite;filter:drop-shadow(0 0 4px rgba(192,38,211,.5));
+}
+html[data-ui-style="ai"] .b7{animation:xcAiGlowPulse 3.2s ease-in-out infinite;}
+html[data-ui-style="ai"] .b7:active{animation:none;}
+html[data-ui-style="ai"] .page2Title{
+  background:linear-gradient(90deg,#fff,#f0d9ff,#fff);
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:xcAiGradientShift 5s ease-in-out infinite;
+}
+html[data-ui-style="ai"] .carAddTopBtn{position:relative;overflow:visible!important;}
+html[data-ui-style="ai"] .carAddTopBtn::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;border:1.5px solid rgba(140,60,240,.55);
+  animation:xcAiRing 2.6s ease-out infinite;pointer-events:none;
+}
+html[data-ui-style="ai"] .carManageCard{position:relative;transition:transform .28s var(--xc-ease,cubic-bezier(.22,1,.36,1)),box-shadow .28s var(--xc-ease,cubic-bezier(.22,1,.36,1));}
+html[data-ui-style="ai"] .carManageCard:hover{transform:translateY(-3px) scale(1.01);}
+html[data-ui-style="ai"] .statusBadge{position:relative;overflow:hidden;}
+html[data-ui-style="ai"] .fleetViewOpt.active{position:relative;overflow:hidden;}
+html[data-ui-style="ai"] .fleetViewOpt.active::before{
+  content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.35) 50%,transparent 80%);
+  background-size:220% 100%;animation:xcAiGradientShift 3.4s linear infinite;pointer-events:none;
+}
+html[data-theme="dark"][data-ui-style="ai"] .logo{background:linear-gradient(90deg,#c084fc,#f0abfc,#c084fc);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+html[data-ui-style="ai"] .uiStyleOpt#uiStyleAI.active{position:relative;overflow:hidden;}
+html[data-ui-style="ai"] .uiStyleOpt#uiStyleAI.active::after{
+  content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(140,60,240,.18) 50%,transparent 70%);
+  background-size:220% 100%;animation:xcAiGradientShift 3s linear infinite;pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-ui-style="ai"] .card,html[data-ui-style="ai"] .logo,html[data-ui-style="ai"] .b7,
+  html[data-ui-style="ai"] .page2Title,html[data-ui-style="ai"] .carAddTopBtn::after,
+  html[data-ui-style="ai"] .fleetViewOpt.active::before,html[data-ui-style="ai"] .uiStyleOpt#uiStyleAI.active::after{animation:none!important}
+}
+.aiPreview{background:linear-gradient(145deg,#241338,#170a22);border-color:#3a2350;position:relative;overflow:hidden;}
+.aiPreview span{left:8px;right:8px;top:8px;height:9px;background:linear-gradient(90deg,#a855f7,#f0abfc);opacity:.95;}
+.aiPreview i{left:8px;top:23px;width:58%;height:25px;background:linear-gradient(135deg,#3a2154,#241238);}
+.aiPreview b{right:8px;top:23px;width:25%;height:25px;background:#8f3ff0;box-shadow:0 0 18px rgba(143,63,240,.45);}
+.aiPreview:after{content:"✨";position:absolute;right:6px;bottom:3px;font-size:10px;animation:xcAiSparkle 2.2s ease-in-out infinite;}
+.uiStyleOpt.active#uiStyleAI{border-color:#c084fc;background:#f7f0ff;box-shadow:0 10px 28px rgba(143,63,240,.18);}
+.uiStyleOpt.active#uiStyleAI .uiStyleName{color:#8b1fd6;}
+.uiStyleRow{grid-template-columns:repeat(3,1fr)!important;}
+@media(max-width:360px){.uiStyleRow{grid-template-columns:1fr 1fr;}}
+
+</style>
+
