@@ -488,6 +488,11 @@ html[data-theme="dark"] .carEditLongHint{color:#71819a;}
 .fleetViewSwitch{display:flex;gap:6px;margin:2px 0 12px;padding:4px;background:#eef1f6;border-radius:14px;}
 .fleetViewOpt{flex:1;padding:8px 4px;border:none;background:transparent;border-radius:11px;font-size:11.5px;font-weight:800;color:#7a8494;cursor:pointer;font-family:inherit;transition:background .2s ease,color .2s ease,box-shadow .2s ease;white-space:nowrap;-webkit-tap-highlight-color:transparent;}
 .fleetViewOpt.active{background:#fff;color:#0047ff;box-shadow:0 2px 8px rgba(20,30,60,.1);}
+.carEditHintOnce{font-size:10.5px;color:#8c98a8;font-weight:700;text-align:center;margin:0 0 10px;padding:0 6px;}
+html[data-theme="dark"] .carEditHintOnce{color:#71819a;}
+/* в "Премиум" статус уже показан крупным бейджем на фото машины — общий зелёный/оранжевый
+   бейдж под карточкой был бы дублем той же информации, поэтому здесь его прячем */
+.carManageCard.stylePremium .carStatusRow{display:none;}
 
 /* ---- фото/аватар машины — общий для всех трёх видов карточек ---- */
 .carPhotoAvatar{position:relative;flex-shrink:0;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,#eaf0ff,#dbe6ff);display:flex;align-items:center;justify-content:center;}
@@ -731,9 +736,9 @@ html[data-theme="dark"] .blacklistResultItem{background:#2a1414;border-color:#5c
 .blacklistMatch{padding:13px 16px;border-bottom:1px solid #f0eaf5;color:#4b315e;font-size:13px;line-height:1.55;}
 .blacklistMatch:last-child{border-bottom:0;}
 .blacklistMatchIndex{display:inline-flex;min-width:26px;height:26px;align-items:center;justify-content:center;border-radius:9px;background:#f0e7ff;color:#6d28d9;font-weight:950;font-size:11px;margin-right:8px;vertical-align:top;}
-.blacklistHitText{display:inline-block;font-size:39px;line-height:1.18;font-weight:950;color:#14532d;background:#dcfce7;border:1px solid #bbf7d0;border-radius:12px;padding:4px 10px;margin:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;vertical-align:middle;}
+.blacklistHitText{display:inline-block;font-size:39px;line-height:1.18;font-weight:950;color:#7f1d1d;background:#fecaca;border:1px solid #fca5a5;border-radius:12px;padding:4px 10px;margin:0 3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;vertical-align:middle;}
 .blacklistContextText{font-size:13px;line-height:1.55;color:#4b315e;}
-html[data-theme="dark"] .blacklistHitText{color:#bbf7d0;background:#14532d;border-color:#166534;}
+html[data-theme="dark"] .blacklistHitText{color:#fecaca;background:#5b1a1a;border-color:#7f1d1d;}
 html[data-theme="dark"] .blacklistContextText{color:#ddd6fe;}
 .blacklistEmpty{padding:32px 20px;border-radius:20px;background:#fff;border:1px dashed #d8c9e8;text-align:center;color:#6b5879;}
 @media(max-width:700px){.blacklistFullScreenCard{padding:14px 12px calc(16px + env(safe-area-inset-bottom))!important}.blacklistHero{padding:12px;border-radius:18px;align-items:flex-start;flex-direction:column}.blacklistSummary{justify-content:flex-start}.blacklistSearchRow{grid-template-columns:1fr}.blacklistSearchButton{width:100%}.blacklistResultHead{align-items:flex-start;flex-direction:column}.blacklistResultCount{align-self:flex-start}}
@@ -1856,6 +1861,7 @@ html[data-theme-id="purple-compact"] .settingsFolderHeader{border-radius:17px!im
 <button type="button" class="fleetViewOpt active" data-view="current" title="Классический">▣ Классика</button>
 <button type="button" class="fleetViewOpt" data-view="premium" title="Премиум">✦ Премиум</button>
 </div>
+<div class="carEditHintOnce" id="fleetHoldHint">💡 Удерживайте карточку автомобиля 1,5 сек, чтобы изменить имя, цену и логотип</div>
 <div class="carListWrap" id="carManageList"></div>
 </div>
 
@@ -2282,6 +2288,8 @@ const view=settings.fleetViewStyle||"current";
 const style=view==="grid"?"tile":view==="list"?"compact":view==="premium"?"premium":"list";
 wrap.classList.toggle("viewTile",view==="grid");
 wrap.classList.toggle("viewPremium",view==="premium");
+const holdHint=document.getElementById("fleetHoldHint");
+if(holdHint) holdHint.style.display=cars.length?"":"none";
 document.querySelectorAll(".fleetViewOpt").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
 if(!cars.length){
 wrap.innerHTML=`<div class="carEmptyState"><div class="historyEmptyIcon">🚘</div>Список пуст.<br>Добавьте первый автомобиль ниже</div>`;
@@ -2389,7 +2397,9 @@ status.className="carStatusBadge "+(statusKey==="rented"?"carStatusRented":statu
 status.innerHTML=`<span class="carStatusDot"></span>${statusKey==="rented"?"В АРЕНДЕ":statusKey==="reserved"?"БРОН":"СВОБОДНО"}`;
 statusRow.appendChild(status);
 card.appendChild(statusRow);
-const hint=document.createElement("div");hint.className="carEditLongHint";hint.textContent="Удерживайте карточку 1,5 сек — изменить";card.appendChild(hint);
+// подсказку про удержание карточки показываем один раз над списком (см. #fleetHoldHint),
+// а не на каждой карточке — раньше строка повторялась под каждым авто и на "Плитке"
+// пересекалась с соседними карточками из-за фиксированной высоты сетки
 attachCarHold(card,i);
 card.addEventListener("click",e=>{
 if(e.target.closest("button,input,.carPhotoBtn")) return;
@@ -5426,6 +5436,7 @@ async function syncBlacklistFiles(){
  if(!base){if(hint)hint.textContent='⚠️ Сервер не настроен';return;}
  try{const r=await fetch(base+'/api/public/blacklist/files',{cache:'no-store'});if(!r.ok)throw new Error();const d=await r.json();const files=(d.files||[]).map(f=>({...f,text:decodeBlacklistBase64(f.data)}));localStorage.setItem('xcar_blacklist_files',JSON.stringify(files));localStorage.setItem('xcar_blacklist_sync_at',String(Date.now()));if(hint)hint.textContent=`📚 Получено файлов: ${files.length} · синхронизировано автоматически`;const fc=document.getElementById('blacklistFileCount');if(fc)fc.textContent=`📚 Файлов: ${files.length}`;}catch(e){const cached=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');if(hint)hint.textContent=cached.length?`📚 Офлайн-база: ${cached.length} файлов`:'⚠️ Не удалось получить базу';}
 }
+function escapeRegExp(s){return String(s).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
 function highlightBlacklistSnippet(snippet,q){
  const raw=String(snippet||"");
  const terms=[String(q||""),...String(q||"").split(/\s+/).filter(Boolean)].map(x=>x.trim()).filter(Boolean).sort((a,b)=>b.length-a.length);
@@ -5442,7 +5453,16 @@ function highlightBlacklistSnippet(snippet,q){
  out+=`<span class="blacklistContextText">${escapeHtml(raw.slice(last))}</span>`;
  return out;
 }
-function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const out=[];for(const f of files){const text=String(f.text||'').replace(/\s+/g,' ').trim(),lower=text.toLowerCase();if(!(terms.every(x=>lower.includes(x))||lower.includes(q.toLowerCase())))continue;const needles=lower.includes(q.toLowerCase())?[q.toLowerCase()]:terms;const hits=[];for(const needle of needles){let from=0;while(needle&&from<lower.length){const idx=lower.indexOf(needle,from);if(idx<0)break;hits.push({idx,needle});from=idx+Math.max(1,needle.length);}}hits.sort((a,b)=>a.idx-b.idx);const uniq=[];for(const h of hits){if(uniq.some(x=>Math.abs(x.idx-h.idx)<Math.max(1,h.needle.length*.8)))continue;const a=h.idx,b=Math.min(text.length,h.idx+Math.max(420,h.needle.length+260));uniq.push({snippet:text.slice(a,b),index:h.idx});}out.push({filename:f.name,matches:uniq,count:uniq.length});}return out;}
+function localBlacklistSearch(q){const files=JSON.parse(localStorage.getItem('xcar_blacklist_files')||'[]');const terms=q.toLowerCase().split(/\s+/).filter(Boolean);const out=[];for(const f of files){
+// границы записей ищем по исходному тексту с переносами строк (каждая запись обычно — одна
+// строка); раньше все пробелы и переносы склеивались в один пробел, и фрагмент результата
+// "утекал" в следующую, никак не связанную запись базы вместо того чтобы остановиться на своей
+const original=String(f.text||'').replace(/\r/g,''),lower=original.toLowerCase();
+if(!(terms.every(x=>lower.includes(x))||lower.includes(q.toLowerCase())))continue;const needles=lower.includes(q.toLowerCase())?[q.toLowerCase()]:terms;const hits=[];for(const needle of needles){let from=0;while(needle&&from<lower.length){const idx=lower.indexOf(needle,from);if(idx<0)break;hits.push({idx,needle});from=idx+Math.max(1,needle.length);}}hits.sort((a,b)=>a.idx-b.idx);const uniq=[];for(const h of hits){if(uniq.some(x=>Math.abs(x.idx-h.idx)<Math.max(1,h.needle.length*.8)))continue;
+// фрагмент начинается ровно со слова совпадения и заканчивается концом этой же строки/записи
+let lineEnd=original.indexOf('\n',h.idx);if(lineEnd<0)lineEnd=original.length;
+const snippet=original.slice(h.idx,lineEnd).replace(/\s+/g,' ').trim();
+uniq.push({snippet,index:h.idx});}out.push({filename:f.name,matches:uniq,count:uniq.length});}return out;}
 async function refreshBlacklistMeta(){
 const base=(settings.account.serverUrl||"").trim().replace(/\/+$/,"");
 const hintEl=document.getElementById("blacklistLastUpdatedHint");
@@ -5923,18 +5943,18 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
   gap:12px!important;
   align-items:stretch!important;
-  grid-auto-rows:270px!important;
+  grid-auto-rows:300px!important;
 }
 .carListWrap.viewTile .carManageCard.styleTile{
   box-sizing:border-box!important;
   width:100%!important;
-  height:270px!important;
-  min-height:270px!important;
-  max-height:270px!important;
+  height:300px!important;
+  min-height:300px!important;
+  max-height:300px!important;
   padding:12px!important;
   display:grid!important;
   grid-template-columns:minmax(0,1fr) auto!important;
-  grid-template-rows:70px 38px 32px 1fr 28px!important;
+  grid-template-rows:70px 36px 30px 22px 1fr 22px!important;
   align-items:center!important;
   column-gap:8px!important;
   row-gap:5px!important;
@@ -6015,9 +6035,20 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
   outline:none!important;
 }
 .carListWrap.viewTile .carEditPrice::after{content:' ₽/сутки';}
-.carListWrap.viewTile .rentSwitch{
+.carListWrap.viewTile .carStatusRow{
   grid-column:1 / -1!important;
   grid-row:4!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+}
+.carListWrap.viewTile .carStatusBadge{font-size:9.5px!important;padding:4px 9px!important;}
+.carListWrap.viewTile .rentSwitch{
+  grid-column:1 / -1!important;
+  grid-row:5!important;
   width:100%!important;
   box-sizing:border-box!important;
   margin:0!important;
@@ -6035,7 +6066,7 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
 .carListWrap.viewTile .rentSwitch input:checked ~ .rentSwitchTrack .rentSwitchThumb{transform:translateX(15px)!important;}
 .carListWrap.viewTile .carRentSince{
   grid-column:1 / -1!important;
-  grid-row:5!important;
+  grid-row:6!important;
   width:100%!important;
   box-sizing:border-box!important;
   margin:0!important;
@@ -6048,6 +6079,7 @@ html[data-theme="dark"][data-ui-style="new"] .page2HeaderBtns > button{
   overflow:hidden!important;
   text-overflow:ellipsis!important;
 }
+.carListWrap.viewTile .carEditLongHint{display:none!important;}
 html[data-theme="dark"] .carListWrap.viewTile .carManageCard.styleTile{
   background:linear-gradient(145deg,#142235,#101b29)!important;
   border-color:#2b3b50!important;
@@ -6057,8 +6089,8 @@ html[data-theme="dark"] .carListWrap.viewTile .carEditName{background:#19283b!im
 html[data-theme="dark"] .carListWrap.viewTile .carEditPrice{color:#9bc7ff!important;}
 html[data-theme="dark"] .carListWrap.viewTile .rentSwitch{border-top-color:#2a394c!important;color:#91a0b2!important;}
 @media(max-width:390px){
-  .carListWrap.viewTile{gap:9px!important;grid-auto-rows:252px!important;}
-  .carListWrap.viewTile .carManageCard.styleTile{height:252px!important;min-height:252px!important;max-height:252px!important;padding:10px!important;grid-template-rows:62px 35px 29px 1fr 25px!important;}
+  .carListWrap.viewTile{gap:9px!important;grid-auto-rows:278px!important;}
+  .carListWrap.viewTile .carManageCard.styleTile{height:278px!important;min-height:278px!important;max-height:278px!important;padding:10px!important;grid-template-rows:62px 35px 29px 20px 1fr 20px!important;}
   .carListWrap.viewTile .carPhotoAvatar{width:62px!important;height:62px!important;border-radius:16px!important;}
   .carListWrap.viewTile .carEditName{height:34px!important;font-size:13px!important;}
   .carListWrap.viewTile .carEditPrice{height:29px!important;font-size:14px!important;}
